@@ -9,6 +9,7 @@ class Login extends Component {
         <div>
           <main>
           <form className="container" >
+            <h1 className="Login Logo">SKALER</h1>
             <p>
               EMAIL :  
             </p>
