@@ -1,0 +1,73 @@
+/* @import url('https://fonts.googleapis.com/css?family=K2D'); */
+*{
+  font-family: 'Prompt', sans-serif;
+}
+
+p {
+  font-size: 20px;
+  background: none;
+  color: whitesmoke
+}
+
+input {
+  font-size: 20px;
+}
+
+main{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    position: absolute;
+    z-index: -1;
+    background-color: whitesmoke;
+  }
+  
+  .login-image {
+    height: 100%;
+    margin-left: 20px;
+    position: absolute;
+    z-index: -2;
+    opacity: .70;
+    background: black;
+    filter: grayscale(100%);
+    filter: blur(100%);
+  }
+  
+  .container {
+    background: #224d3c;
+    width: 500px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 5px 5px #0000008c;
+    border-radius: 15px;
+  }
+
+  .Login {
+    position: relative;
+    color: rgb(255, 255, 255);
+    margin: 0px 10px;
+    background: none;
+    font-family: 'Prompt', sans-serif;
+  }
+
+  .Logo {
+    font-size: 100px;
+    height: 150px;
+    margin-top: 0px;
+  }
+
+@media (max-width: 1250px){
+  main{
+    overflow: hidden;
+  }
+  .login-image{
+    width: 1157px;
+  }
+}
+  
