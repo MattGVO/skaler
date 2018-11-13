@@ -1,13 +1,17 @@
 import React, { Component } from "react";
+import String from './String'
 
-class ScaleName extends Component {
+class Fretboard extends Component {
   render() {
     return (
-      <div>
-        Fretboard goes here
+      <div className="Fretboard">
+        <String />
+        <String />
+        <String />
+        <String />
       </div>
     );
   }
 }
 
-export default ScaleName;
+export default Fretboard;

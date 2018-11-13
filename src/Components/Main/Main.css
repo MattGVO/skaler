@@ -2,6 +2,7 @@
 background: whitesmoke;
 height: 90vh;
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: center;
 }
@@ -15,3 +16,27 @@ align-items: center;
     justify-content: space-around;
     align-items: center
 }
+.Fretboard{
+    width: 1000px;
+    height: 400px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.ScaleNotes{
+    width: 1000px;
+    height: 100px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
+
+select {
+    height: 40px;
+}
+
