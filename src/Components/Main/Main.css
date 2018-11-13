@@ -16,6 +16,7 @@ align-items: center;
     justify-content: center;
     align-items: center
 }
+
 .Fretboard{
     width: 1000px;
     height: 400px;
@@ -31,7 +32,7 @@ align-items: center;
 
 .StringContainer{
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: space-around;
     height: 100%;
 }
@@ -42,8 +43,12 @@ align-items: center;
     border-style: solid;
     border-color: rgb(0, 0, 0);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center
+}
+
+.Interval{
+    margin: 0px 50px;
 }
 
 select {

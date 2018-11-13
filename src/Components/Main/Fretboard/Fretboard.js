@@ -1,25 +1,37 @@
 import React, { Component } from "react";
 import String from './String'
+import { connect } from 'react-redux';
 
 class Fretboard extends Component {
   constructor(){
     super();
 
     this.state={
-      numOfStrings: 2,
+      numOfStrings: 1,
       stringArray: [],
     }
   }
   render() {
-    for (let i=0; i < this.state.numOfStrings; i++){
-      this.state.stringArray.push(<String/>)
+    const difference = this.props.numOfStrings-this.state.stringArray.length
+    const negDifference = difference * -1
+    
+
+    if (difference >=1){
+      for (let i=0; i < difference; i++){
+        this.state.stringArray.push(<String/>)
+      }
+    // } else if (difference === -1){
+    //   console.log(difference)
+    }else {
+      this.state.stringArray.splice(this.state.numOfStrings,negDifference)
     }
+
     
     return (
       <div className="Fretboard">
         <div className="StringContainer">
         {this.state.stringArray.map( (val,i) => {
-          return val;
+          return <div key ={i}>{val}</div>;
         })}
         
         </div>
@@ -28,4 +40,8 @@ class Fretboard extends Component {
   }
 }
 
-export default Fretboard;
+function mapStateToProps(state){
+  return state
+}
+
+export default connect(mapStateToProps)(Fretboard);

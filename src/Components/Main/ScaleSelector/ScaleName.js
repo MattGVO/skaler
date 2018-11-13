@@ -4,7 +4,7 @@ class ScaleName extends Component {
   render() {
     return (
       <div>
-        <select name="Root Note">
+        <select name="scaleName" onChange={this.props.handleChange} value={this.props.scaleName}>
           <option value="Major/Aeolian">Major/Aeolian</option>
           <option value="Minor/Ionian">Minor/Ionian</option>
           <option value="Dorian">Dorian</option>
