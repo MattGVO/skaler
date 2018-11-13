@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../Home/Home.css";
 import skalerbackground from "../../skalerbackground.jpg";
-import logo from '../../skaler.svg'
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     render() {
@@ -18,6 +18,9 @@ class Login extends Component {
               PASSWORD :  
             </p>
             <input type="password"></input>
+            <Link to="/main">
+            <button type ='button'>Login</button>
+            </Link>
           </form>
           <img
             className="login-image"

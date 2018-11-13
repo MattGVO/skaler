@@ -1,0 +1,17 @@
+.main-container{
+background: whitesmoke;
+height: 90vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.ScaleSelector{
+    width: 1000px;
+    height: 100px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-around;
+    align-items: center
+}
