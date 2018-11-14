@@ -20,8 +20,6 @@ class Fretboard extends Component {
       for (let i=0; i < difference; i++){
         this.state.stringArray.push(<String/>)
       }
-    // } else if (difference === -1){
-    //   console.log(difference)
     }else {
       this.state.stringArray.splice(this.state.numOfStrings,negDifference)
     }

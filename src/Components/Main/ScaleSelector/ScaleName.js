@@ -9,7 +9,7 @@ class ScaleName extends Component {
           <option value="Minor/Ionian">Minor/Ionian</option>
           <option value="Dorian">Dorian</option>
           <option value="Phrygian">Phrygian</option>
-          <option value="C#">C#</option>
+          <option value="Phrygian">Phrygian</option>
           <option value="Lydian">Lydian</option>
           <option value="Mixolydian">Mixolydian</option>
           <option value="Locrian">Locrian</option>

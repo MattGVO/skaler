@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import ScaleName from './ScaleName';
 import NumOfStrings from './NumOfStrings';
 import RootNote from './RootNote';
+import { connect } from 'react-redux';
+import { updateScale } from '../../../ducks/scaleReducer'
+
 
 class ScaleSelector extends Component {
   constructor(props){
@@ -13,7 +16,10 @@ class ScaleSelector extends Component {
     }
   }
 
-  handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+    this.props.updateScale(this.state)
+  }
   
   render() {
     return (
@@ -32,4 +38,6 @@ class ScaleSelector extends Component {
   }
 }
 
-export default ScaleSelector;
+
+
+export default connect(null, {updateScale})(ScaleSelector);
