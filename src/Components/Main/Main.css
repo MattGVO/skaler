@@ -12,6 +12,7 @@ align-items: center;
     height: 100px;
     border-style: solid;
     border-color: rgb(0, 0, 0);
+    border-width: thin;
     display: flex;
     justify-content: center;
     align-items: center
@@ -24,6 +25,7 @@ align-items: center;
     border-top-style: none;
     border-bottom-style: none;
     border-color: rgb(0, 0, 0);
+    border-width: thin;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,7 +46,10 @@ align-items: center;
 
 .Fret{
     border-style: solid;
-    width: 32px;
+    border-width: 1px;
+    border-color: gray;
+    height: 33px;
+    width: 36px;
 }
 
 .ScaleNotes{
@@ -52,9 +57,10 @@ align-items: center;
     height: 100px;
     border-style: solid;
     border-color: rgb(0, 0, 0);
+    border-width: thin;
     display: flex;
-    justify-content: space-between;
-    align-items: center
+    justify-content: center;
+    align-items: center;
 }
 
 .Interval{

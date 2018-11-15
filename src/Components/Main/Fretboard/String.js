@@ -1,7 +1,19 @@
 import React, { Component } from "react";
-import Fret from './Frets'
+import Frets from './Frets'
 
 class String extends Component {
+  constructor(){
+    super();
+    
+
+    this.state={
+      fretArray: [],
+    }
+    for (let i =0; i < 25; i++){
+      this.state.fretArray.push(<Frets />)
+   }
+    
+  }
   render() {
     return (
       <div className="StringAndFret">
@@ -19,7 +31,9 @@ class String extends Component {
           <option value="G">G</option>
           <option value="G#">G#</option>
         </select>
-        <Fret/>
+        {this.state.fretArray.map((val,i) => {
+          return <div>{val}</div>
+        })}
       </div>
     );
   }
