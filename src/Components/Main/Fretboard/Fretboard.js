@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import String from './String'
 import { connect } from 'react-redux';
-import Frets from './Frets'
+// import Frets from './Frets'
 
 class Fretboard extends Component {
   constructor(){
@@ -14,7 +14,7 @@ class Fretboard extends Component {
       fretArray: [],
     }
     for (let i =0; i < 25; i++){
-      this.state.fretArray.push(<Frets />)
+      this.state.fretArray.push([i])
    }
     
   }

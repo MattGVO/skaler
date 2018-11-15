@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Frets from './Frets'
 
 class String extends Component {
   constructor(){
@@ -8,9 +7,10 @@ class String extends Component {
 
     this.state={
       fretArray: [],
+      scaleNotes: []
     }
     for (let i =0; i < 25; i++){
-      this.state.fretArray.push(<Frets />)
+      this.state.fretArray.push([i])
    }
     
   }
@@ -32,7 +32,7 @@ class String extends Component {
           <option value="G#">G#</option>
         </select>
         {this.state.fretArray.map((val,i) => {
-          return <div key={i}>{val}</div>
+          return <div className="Fret" key={i}>{val%2 ===0? val:null}</div>
         })}
       </div>
     );
