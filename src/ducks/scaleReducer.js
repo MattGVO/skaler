@@ -26,7 +26,7 @@ export default function reducer(state = initialState, action) {
       return { ...state, numOfStrings: action.payload };
     case SCALE_NAME:
       return { ...state, scaleName: action.payload };
-    default:
+      default:
       return state;
-  }
+    }
 }

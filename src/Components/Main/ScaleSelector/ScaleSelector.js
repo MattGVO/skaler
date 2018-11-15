@@ -12,16 +12,16 @@ class ScaleSelector extends Component {
 
     this.state={
       rootNote: "A",
-      scaleName: "Major/Ionian",
+      scaleName: "Major/Aeolian",
     }
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    this.props.updateScale(this.state)
   }
   
   render() {
+    this.props.updateScale(`${this.state.rootNote} ${this.state.scaleName}`)
     return (
       <div className="ScaleSelector">
        <RootNote

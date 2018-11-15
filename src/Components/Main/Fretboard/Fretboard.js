@@ -1,16 +1,24 @@
 import React, { Component } from "react";
 import String from './String'
 import { connect } from 'react-redux';
+import Frets from './Frets'
 
 class Fretboard extends Component {
   constructor(){
     super();
+    
 
     this.state={
       numOfStrings: 1,
       stringArray: [],
+      fretArray: [],
     }
+    for (let i =0; i < 25; i++){
+      this.state.fretArray.push(<Frets />)
+   }
+    
   }
+
   render() {
     const difference = this.props.numOfStrings-this.state.stringArray.length
     const negDifference = difference * -1
@@ -25,13 +33,13 @@ class Fretboard extends Component {
     }
 
     
+    
     return (
       <div className="Fretboard">
         <div className="StringContainer">
         {this.state.stringArray.map( (val,i) => {
-          return <div key ={i}>{val}</div>;
+          return <div key ={i}>{val}</div>
         })}
-        
         </div>
       </div>
     );

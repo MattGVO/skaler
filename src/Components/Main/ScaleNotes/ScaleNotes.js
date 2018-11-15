@@ -11,17 +11,15 @@ class ScaleNotes extends Component {
     }
   }
 
-  async componentDidMount(){
-   let result = await this.props.scaleName.rootNote
-    console.log(result);
-    
-  }
+  
+
   render() {
-    
+      console.log(this.props.scaleName)
+  
     return (
       <div className="ScaleNotes">
       <h2>
-        {/* {this.state.scaleName} */}
+        {this.props.scaleName}
       </h2>
         {this.state.scaleNotes.map( (val,i) => {
           return(

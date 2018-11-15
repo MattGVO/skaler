@@ -25,16 +25,22 @@ align-items: center;
     border-bottom-style: none;
     border-color: rgb(0, 0, 0);
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    
+    color: black;
 }
 
 .StringContainer{
     display: flex;
     flex-direction: column-reverse;
-    justify-content: space-around;
+    justify-content: center;
     height: 100%;
+}
+
+.Fret{
+    border-style: solid;
+    width: 32px;
 }
 
 .ScaleNotes{
