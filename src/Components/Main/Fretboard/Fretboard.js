@@ -36,7 +36,7 @@ class Fretboard extends Component {
     
     return (
       <div className="Fretboard">
-        <div className="StringContainer">
+        <div>
         {this.state.stringArray.map( (val,i) => {
           return <div key ={i}>{val}</div>
         })}

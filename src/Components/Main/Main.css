@@ -38,6 +38,10 @@ align-items: center;
     height: 100%;
 }
 
+.StringAndFret{
+    display: flex;
+}
+
 .Fret{
     border-style: solid;
     width: 32px;

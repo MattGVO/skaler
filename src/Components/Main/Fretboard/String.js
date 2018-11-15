@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import Fret from './Frets'
 
 class String extends Component {
   render() {
     return (
-      <div>
+      <div className="StringAndFret">
         <select name="String">
           <option value="A">A</option>
           <option value="A#">A#</option>
@@ -18,6 +19,7 @@ class String extends Component {
           <option value="G">G</option>
           <option value="G#">G#</option>
         </select>
+        <Fret/>
       </div>
     );
   }
