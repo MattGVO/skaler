@@ -9,7 +9,7 @@ const app = express();
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const port = SERVER_PORT;
 
-massive( CONNECTION_STRING ).then( db => {app.set( 'db',db )})
+massive( CONNECTION_STRING ).then( db => app.set( 'db',db ))
 
 app.use(express.json())
 app.use(session({

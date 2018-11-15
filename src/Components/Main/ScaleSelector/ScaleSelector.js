@@ -22,7 +22,7 @@ class ScaleSelector extends Component {
 
   componentDidUpdate(prevProps) {
     // Typical usage (don't forget to compare props):
-    if (this.state !== prevProps.userID) {
+    if (this.state !== prevProps) {
       this.props.updateScale(`${this.state.rootNote} ${this.state.scaleName}`)
     }
   }
