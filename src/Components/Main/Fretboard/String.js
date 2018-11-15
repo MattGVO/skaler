@@ -7,7 +7,8 @@ class String extends Component {
 
     this.state={
       fretArray: [],
-      scaleNotes: []
+      scaleNotes: [],
+      fretCoordinates: [],
     }
     for (let i =0; i < 25; i++){
       this.state.fretArray.push([i])
@@ -32,7 +33,7 @@ class String extends Component {
           <option value="G#">G#</option>
         </select>
         {this.state.fretArray.map((val,i) => {
-          return <div className="Fret" key={i}>{val%2 ===0? val:null}</div>
+          return <div className="Fret" key={i}>{val%2 ===0? <span class="dot"></span>:null}</div>
         })}
       </div>
     );

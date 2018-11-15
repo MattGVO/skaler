@@ -30,6 +30,7 @@
     align-items: center;
     border-radius: 15px 15px 0px 0px;
     box-shadow: 0px 5px 5px #0000008c;
+    
 }
 
 .Fretboard{
@@ -67,7 +68,20 @@
     height: 33px;
     width: 36px;
     text-align: center;
+    
 }
+.dot {
+    margin-top: 25px;
+    height: 15px;
+    width: 15px;
+    background-color: #224d3c;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    box-shadow: 0px 1px 8px #0000008c;
+  }
 
 .ScaleNotes{
     width: 1000px;
@@ -80,6 +94,7 @@
     align-items: center;
     border-radius: 0px 0px 15px 15px ;
     box-shadow: 0px 5px 5px #0000008c;
+    
 }
 
 .Interval{
