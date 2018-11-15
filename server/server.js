@@ -19,9 +19,9 @@ app.use(session({
 }))
 
 const apiUrl = '/api/'
-const authUrl = '/auth/'
+// const authUrl = '/auth/'
 
-app.get(`${apiUrl}getScale`, apiCtrl.getScale)
+app.post(`${apiUrl}getscale`, apiCtrl.getScale)
 
 // app.get(`${apiUrl}getFret`, apiCtrl.getFret)
 

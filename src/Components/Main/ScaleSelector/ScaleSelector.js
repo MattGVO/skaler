@@ -19,9 +19,18 @@ class ScaleSelector extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.state !== prevProps.userID) {
+      this.props.updateScale(`${this.state.rootNote} ${this.state.scaleName}`)
+    }
+  }
+  
   
   render() {
-    this.props.updateScale(`${this.state.rootNote} ${this.state.scaleName}`)
+    // this.props.updateScale(`${this.state.rootNote} ${this.state.scaleName}`)
+    
     return (
       <div className="ScaleSelector">
        <RootNote

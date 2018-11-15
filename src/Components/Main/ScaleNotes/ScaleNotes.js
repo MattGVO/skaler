@@ -14,15 +14,14 @@ class ScaleNotes extends Component {
     }
   }
 
-
-
-  async componentDidMount(){
-    var scaleNameArr = this.state.scaleName.split(' ')
-    let res = await axios.get(`${apiUrl}getScale`, {
-     rootNote: scaleNameArr[0],
-    scaleName: scaleNameArr[1],
-    });
-  }
+//   async componentDidMount(){
+//     var scaleNameArr = this.state.scaleName.split(' ')
+//     console.log('before',scaleNameArr)
+//     let result = await axios.post(`${apiUrl}getscale`, {
+//     rootNote: scaleNameArr[0],
+//     scaleName: scaleNameArr[1],
+//   })
+// }
 
   
 
@@ -33,10 +32,10 @@ class ScaleNotes extends Component {
         {this.props.scaleName}
       </h2>
         {this.state.scaleNotes.map( (val,i) => {
-          if (val)
-          return(
-          <h3 key={i} className="Interval">{val}</h3>
-          )
+          if (val){
+            return<h3 key={i} className="Interval">{val}</h3>
+          }
+          return null;
           })}
       </div>
     );

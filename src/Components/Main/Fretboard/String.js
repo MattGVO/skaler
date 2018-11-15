@@ -32,7 +32,7 @@ class String extends Component {
           <option value="G#">G#</option>
         </select>
         {this.state.fretArray.map((val,i) => {
-          return <div>{val}</div>
+          return <div key={i}>{val}</div>
         })}
       </div>
     );
