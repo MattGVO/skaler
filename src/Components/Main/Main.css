@@ -1,10 +1,22 @@
 .main-container{
-background: whitesmoke;
-height: 90vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+    background: rgba(245, 245, 245, 0);
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container-background{
+    background-color: #224d3c;
+    width: 1050px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0px 5px 5px #0000008c;
 }
 
 .ScaleSelector{
@@ -15,7 +27,8 @@ align-items: center;
     border-width: thin;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    border-radius: 15px 15px 0px 0px;
 }
 
 .Fretboard{
@@ -47,7 +60,7 @@ align-items: center;
 .Fret{
     border-style: solid;
     border-width: 1px;
-    border-color: gray;
+    border-color: #A9A9A9;
     height: 33px;
     width: 36px;
 }
@@ -61,6 +74,7 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0px 0px 15px 15px ;
 }
 
 .Interval{

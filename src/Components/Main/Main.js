@@ -8,10 +8,11 @@ class Main extends Component {
   render() {
     return (
       <div className="main-container">
+       <div className="main-container-background">
         <ScaleSelector />
         <FretBoard />
         <ScaleNotes />
-
+        </div>
       </div>
     );
   }

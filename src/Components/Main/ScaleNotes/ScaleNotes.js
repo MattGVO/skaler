@@ -7,7 +7,7 @@ class ScaleNotes extends Component {
 
     this.state={
       scaleName: null,
-      scaleNotes: ["C", "D", "E", "F","G",null,null,],
+      scaleNotes: ["C", "D", "E", "F","G",null,null],
     }
   }
 
@@ -22,8 +22,9 @@ class ScaleNotes extends Component {
         {this.props.scaleName}
       </h2>
         {this.state.scaleNotes.map( (val,i) => {
+          if (val)
           return(
-          <h2 key={i} className="Interval">{val}</h2>
+          <h3 key={i} className="Interval">{val}</h3>
           )
           })}
       </div>
