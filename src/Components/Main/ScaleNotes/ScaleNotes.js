@@ -17,7 +17,7 @@ class ScaleNotes extends Component {
     var scaleNameArr = this.props.scaleName.split(' ')
     let result = await axios.post(`${apiUrl}getscale`, {
     rootNote: scaleNameArr[0],
-    scaleName: `${scaleNameArr[1]}`,
+    scaleName: scaleNameArr[2]? `${scaleNameArr[1]} ${scaleNameArr[2]}`: scaleNameArr[1],
   })
   let { rootnote,second,third,fourth,fifth,sixth,seventh } = result.data[0]
   var scaleNoteArray = [rootnote,second,third,fourth,fifth,sixth,seventh]
@@ -33,7 +33,7 @@ async componentDidUpdate(prevProps) {
      var scaleNameArr = this.props.scaleName.split(' ')
   let result = await axios.post(`${apiUrl}getscale`, {
   rootNote: scaleNameArr[0],
-  scaleName: scaleNameArr[1],
+  scaleName: scaleNameArr[2]? `${scaleNameArr[1]} ${scaleNameArr[2]}`: scaleNameArr[1],
 })
 console.log(result.data[0])
 let { rootnote,second,third,fourth,fifth,sixth,seventh } = result.data[0]
@@ -51,12 +51,12 @@ this.setState({
     console.log(this.props.scaleName)
     return (
       <div className="ScaleNotes">
-      <h3>
+      <h4>
         {this.props.scaleName}
-      </h3>
+      </h4>
         {this.state.scaleNotes.map( (val,i) => {
           if (val){
-            return<h3 key={i} className="Interval">{val}</h3>
+            return<h4 key={i} className="Interval">{val}</h4>
           }
           return null;
           })}
