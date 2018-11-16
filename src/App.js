@@ -7,6 +7,7 @@ import {Link} from 'react-router-dom';
 
 class App extends Component {
   render() {
+    console.log()
     return (
       
       <div className="App">

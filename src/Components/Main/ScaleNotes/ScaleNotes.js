@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { updateScaleNotes } from '../../../ducks/scaleReducer'
-const apiUrl = '/api/'
+import { updateScaleNotes } from '../../../ducks/reducer';
+const apiUrl = '/api/';
 
 class ScaleNotes extends Component {
   constructor(props){

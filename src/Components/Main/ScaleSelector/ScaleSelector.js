@@ -3,7 +3,7 @@ import ScaleName from './ScaleName';
 import NumOfStrings from './NumOfStrings';
 import RootNote from './RootNote';
 import { connect } from 'react-redux';
-import { updateScale } from '../../../ducks/scaleReducer'
+import { updateScale } from '../../../ducks/reducer'
 
 
 class ScaleSelector extends Component {

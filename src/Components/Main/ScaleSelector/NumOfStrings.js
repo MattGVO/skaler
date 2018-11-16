@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { updateString } from '../../../ducks/scaleReducer'
+import { updateString } from '../../../ducks/reducer'
 
 class NumOfStrings extends Component {
   constructor(props){

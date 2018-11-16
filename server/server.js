@@ -25,4 +25,6 @@ app.post(`${apiUrl}getscale`, apiCtrl.getScale)
 
 app.post(`${apiUrl}getfret`, apiCtrl.getFret)
 
+app.post(`${apiUrl}getrootnote`, apiCtrl.getRootNote)
+
 app.listen( port, () => console.log( `port ${port} is listening` ) );
