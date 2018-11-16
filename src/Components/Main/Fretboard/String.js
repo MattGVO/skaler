@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import axios from 'axios';
 const apiUrl = '/api/'
+var fretCoordinates =[]
 
 class String extends Component {
   constructor(){
@@ -27,23 +28,37 @@ class String extends Component {
       stringAndNotesArr
     })
     let [rootnote,second,third,fourth,fifth,sixth,seventh] = result.data 
-    var fretCoordinates = [
-      rootnote.fret,
-      second.fret,
-      third.fret,
-      fourth.fret,
-      fifth.fret,
-      sixth.fret,
-      seventh.fret,
-      rootnote.fretrpt,
-      second.fretrpt,
-      third.fretrpt,
-      fourth.fretrpt,
-      fifth.fretrpt,
-      sixth.fretrpt,
-      seventh.fretrpt,
-    ]
-    console.log(fretCoordinates)
+    if (sixth && seventh) {
+       fretCoordinates = [
+        rootnote.fret,
+        second.fret,
+        third.fret,
+        fourth.fret,
+        fifth.fret,
+        sixth.fret,
+        seventh.fret,
+        rootnote.fretrpt,
+        second.fretrpt,
+        third.fretrpt,
+        fourth.fretrpt,
+        fifth.fretrpt,
+        sixth.fretrpt,
+        seventh.fretrpt,
+      ]
+    } else {
+       fretCoordinates = [
+        rootnote.fret,
+        second.fret,
+        third.fret,
+        fourth.fret,
+        fifth.fret,
+        rootnote.fretrpt,
+        second.fretrpt,
+        third.fretrpt,
+        fourth.fretrpt,
+        fifth.fretrpt,
+      ]
+    }
     this.setState({
       fretCoordinates
     })
@@ -52,28 +67,42 @@ class String extends Component {
   async componentDidUpdate(prevProps, prevState) {
     if (this.props.scaleNotes !== prevProps.scaleNotes || this.state.string !== prevState.string) {
       var stringAndNotesArr = [this.state.string,...this.props.scaleNotes]
-      console.log('StringandNotes',stringAndNotesArr)
       let result = await axios.post(`${apiUrl}getfret`, {
         stringAndNotesArr
       })
+      
       let [rootnote,second,third,fourth,fifth,sixth,seventh] = result.data 
-    var fretCoordinates = [
-      rootnote.fret,
-      second.fret,
-      third.fret,
-      fourth.fret,
-      fifth.fret,
-      sixth.fret,
-      seventh.fret,
-      rootnote.fretrpt,
-      second.fretrpt,
-      third.fretrpt,
-      fourth.fretrpt,
-      fifth.fretrpt,
-      sixth.fretrpt,
-      seventh.fretrpt,
-    ]
-    console.log(fretCoordinates)
+      if (sixth && seventh) {
+        fretCoordinates = [
+          rootnote.fret,
+          second.fret,
+          third.fret,
+          fourth.fret,
+          fifth.fret,
+          sixth.fret,
+          seventh.fret,
+          rootnote.fretrpt,
+          second.fretrpt,
+          third.fretrpt,
+          fourth.fretrpt,
+          fifth.fretrpt,
+          sixth.fretrpt,
+          seventh.fretrpt,
+        ]
+      } else {
+        fretCoordinates = [
+          rootnote.fret,
+          second.fret,
+          third.fret,
+          fourth.fret,
+          fifth.fret,
+          rootnote.fretrpt,
+          second.fretrpt,
+          third.fretrpt,
+          fourth.fretrpt,
+          fifth.fretrpt,
+        ]
+      }
     this.setState({
       fretCoordinates
     })
@@ -85,7 +114,6 @@ class String extends Component {
   handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
 
   render() {
-    console.log(this.state.fretCoordinates.includes())
     return (
       <div className="StringAndFret">
         <select name="string" onChange={this.handleChange}>

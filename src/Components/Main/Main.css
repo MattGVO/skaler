@@ -82,6 +82,18 @@
     position: relative;
   }
 
+  .root-dot{
+    margin-top: 25px;
+    height: 15px;
+    width: 15px;
+    background-color: #8A4EB0;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+  }
+
 .ScaleNotes{
     width: 1000px;
     height: 100px;
