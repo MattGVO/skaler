@@ -14,7 +14,7 @@ class String extends Component {
       scaleNotes: [],
       fretCoordinates: [],
     }
-    for (let i =0; i < 25; i++){
+    for (let i =0; i < 24; i++){
       this.state.fretArray.push([i])
    }
     
@@ -23,14 +23,30 @@ class String extends Component {
 
   async componentDidMount(){
     var stringAndNotesArr = [this.state.string,...this.props.scaleNotes]
-    console.log('StringandNotes',stringAndNotesArr)
     let result = await axios.post(`${apiUrl}getfret`, {
       stringAndNotesArr
     })
-    // this.setState({
-    //   fretCoordinates: result.data
-    // })
-    console.log('result', result.data)
+    let [rootnote,second,third,fourth,fifth,sixth,seventh] = result.data 
+    var fretCoordinates = [
+      rootnote.fret,
+      second.fret,
+      third.fret,
+      fourth.fret,
+      fifth.fret,
+      sixth.fret,
+      seventh.fret,
+      rootnote.fretrpt,
+      second.fretrpt,
+      third.fretrpt,
+      fourth.fretrpt,
+      fifth.fretrpt,
+      sixth.fretrpt,
+      seventh.fretrpt,
+    ]
+    console.log(fretCoordinates)
+    this.setState({
+      fretCoordinates
+    })
   }
 
   async componentDidUpdate(prevProps, prevState) {
@@ -40,10 +56,27 @@ class String extends Component {
       let result = await axios.post(`${apiUrl}getfret`, {
         stringAndNotesArr
       })
-      // this.setState({
-      //   fretCoordinates: result.data
-      // })
-      console.log('result', result.data)
+      let [rootnote,second,third,fourth,fifth,sixth,seventh] = result.data 
+    var fretCoordinates = [
+      rootnote.fret,
+      second.fret,
+      third.fret,
+      fourth.fret,
+      fifth.fret,
+      sixth.fret,
+      seventh.fret,
+      rootnote.fretrpt,
+      second.fretrpt,
+      third.fretrpt,
+      fourth.fretrpt,
+      fifth.fretrpt,
+      sixth.fretrpt,
+      seventh.fretrpt,
+    ]
+    console.log(fretCoordinates)
+    this.setState({
+      fretCoordinates
+    })
     }
   }
 
@@ -52,7 +85,7 @@ class String extends Component {
   handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
 
   render() {
-    console.log(this.props.scaleNotes)
+    console.log(this.state.fretCoordinates.includes())
     return (
       <div className="StringAndFret">
         <select name="string" onChange={this.handleChange}>
@@ -70,7 +103,7 @@ class String extends Component {
           <option value="G#">G#</option>
         </select>
         {this.state.fretArray.map((val,i) => {
-          return <div className="Fret" key={i}>{val%2 ===0? <span className="dot"></span>:null}</div>
+          return <div className="Fret" key={i}>{this.state.fretCoordinates.includes(i)? <span className="dot"></span> : null}</div>
         })}
       </div>
     );
