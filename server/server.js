@@ -23,6 +23,6 @@ const apiUrl = '/api/'
 
 app.post(`${apiUrl}getscale`, apiCtrl.getScale)
 
-// app.get(`${apiUrl}getFret`, apiCtrl.getFret)
+app.post(`${apiUrl}getfret`, apiCtrl.getFret)
 
 app.listen( port, () => console.log( `port ${port} is listening` ) );

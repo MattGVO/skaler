@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import axios from 'axios';
+const apiUrl = '/api/'
 
 class String extends Component {
   constructor(){
@@ -22,12 +24,26 @@ class String extends Component {
   async componentDidMount(){
     var stringAndNotesArr = [this.state.string,...this.props.scaleNotes]
     console.log('StringandNotes',stringAndNotesArr)
+    let result = await axios.post(`${apiUrl}getfret`, {
+      stringAndNotesArr
+    })
+    // this.setState({
+    //   fretCoordinates: result.data
+    // })
+    console.log('result', result.data)
   }
 
   async componentDidUpdate(prevProps, prevState) {
     if (this.props.scaleNotes !== prevProps.scaleNotes || this.state.string !== prevState.string) {
       var stringAndNotesArr = [this.state.string,...this.props.scaleNotes]
       console.log('StringandNotes',stringAndNotesArr)
+      let result = await axios.post(`${apiUrl}getfret`, {
+        stringAndNotesArr
+      })
+      // this.setState({
+      //   fretCoordinates: result.data
+      // })
+      console.log('result', result.data)
     }
   }
 
