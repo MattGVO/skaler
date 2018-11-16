@@ -2,8 +2,15 @@
 
 * {
   margin: 0;
-  background-color: whitesmoke;
+  background-color: #222728;
+  color: whitesmoke;
+  border-color: whitesmoke;
 }
+
+/* * {
+  margin: 0;
+  background-color: whites
+} */
 
 header {
   background-color: #224d3c;

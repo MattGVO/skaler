@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 
 class String extends Component {
   constructor(){
@@ -6,6 +7,7 @@ class String extends Component {
     
 
     this.state={
+      string: 'A',
       fretArray: [],
       scaleNotes: [],
       fretCoordinates: [],
@@ -15,10 +17,29 @@ class String extends Component {
    }
     
   }
+  
+
+  async componentDidMount(){
+    var stringAndNotesArr = [this.state.string,...this.props.scaleNotes]
+    console.log('StringandNotes',stringAndNotesArr)
+  }
+
+  async componentDidUpdate(prevProps, prevState) {
+    if (this.props.scaleNotes !== prevProps.scaleNotes || this.state.string !== prevState.string) {
+      var stringAndNotesArr = [this.state.string,...this.props.scaleNotes]
+      console.log('StringandNotes',stringAndNotesArr)
+    }
+  }
+
+  
+
+  handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
+
   render() {
+    console.log(this.props.scaleNotes)
     return (
       <div className="StringAndFret">
-        <select name="String">
+        <select name="string" onChange={this.handleChange}>
           <option value="A">A</option>
           <option value="A#">A#</option>
           <option value="B">B</option>
@@ -33,11 +54,15 @@ class String extends Component {
           <option value="G#">G#</option>
         </select>
         {this.state.fretArray.map((val,i) => {
-          return <div className="Fret" key={i}>{val%2 ===0? <span class="dot"></span>:null}</div>
+          return <div className="Fret" key={i}>{val%2 ===0? <span className="dot"></span>:null}</div>
         })}
       </div>
     );
   }
 }
 
-export default String;
+function mapStateToProps(state){
+  return state
+}
+
+export default connect(mapStateToProps)(String);

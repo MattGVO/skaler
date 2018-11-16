@@ -11,11 +11,8 @@ class Fretboard extends Component {
     this.state={
       numOfStrings: 1,
       stringArray: [],
-      fretArray: [],
     }
-    for (let i =0; i < 25; i++){
-      this.state.fretArray.push([i])
-   }
+    
     
   }
 

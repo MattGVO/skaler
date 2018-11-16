@@ -22,7 +22,8 @@ main{
     width: 100vw;
     position: absolute;
     z-index: -1;
-    background-color: whitesmoke;
+    background-color: #222728;
+    position: absolute;
   }
   
   .login-image {
