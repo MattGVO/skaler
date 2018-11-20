@@ -8,6 +8,7 @@ const initialState = {
 const NUM_OF_STRINGS = "NUM_OF_STRINGS";
 const SCALE_NAME = "SCALE_NAME";
 const SCALE_NOTES = "SCALE_NOTES"
+const USER_DATA = 'USER_DATA';
 
 export function updateString(numOfStrings) {
   return {
@@ -30,6 +31,13 @@ export function updateScaleNotes(scaleNotes){
   }
 }
 
+export function updateUser(userData){
+  return {
+      type: USER_DATA,
+      payload: userData
+  }
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case NUM_OF_STRINGS:
@@ -38,6 +46,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, scaleName: action.payload };
     case SCALE_NOTES:
       return {...state, scaleNotes: action.payload};
+    case USER_DATA:
+      return {...state, user: action.payload};
     default:
       return state;
     }

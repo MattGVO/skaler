@@ -2,6 +2,7 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const apiCtrl = require('./apiCtrl')
+const authCtrl = require('./authCtrl')
 require('dotenv').config();
 
 const app = express();
@@ -19,12 +20,20 @@ app.use(session({
 }))
 
 const apiUrl = '/api/'
-// const authUrl = '/auth/'
+const authUrl = '/auth/'
 
 app.post(`${apiUrl}getscale`, apiCtrl.getScale)
 
 app.post(`${apiUrl}getfret`, apiCtrl.getFret)
 
 app.post(`${apiUrl}getrootnote`, apiCtrl.getRootNote)
+
+app.post(`${authUrl}signup`, authCtrl.signup)
+
+app.post(`${authUrl}login`, authCtrl.login)
+
+app.get(`${authUrl}user-data`,authCtrl.userData)
+
+app.get(`${authUrl}logout`,authCtrl.logout)
 
 app.listen( port, () => console.log( `port ${port} is listening` ) );

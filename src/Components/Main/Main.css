@@ -19,10 +19,18 @@
     box-shadow: 0px 5px 5px #0000008c;
 }
 
+.main-tabs{
+    background: #224d3c;
+    display: flex;
+    justify-content: space-around;
+    width: 100%
+}
+
 .ScaleSelector{
     width: 1000px;
     height: 100px;
     border-style: solid;
+    border-color: rgb(0, 0, 0);
     border-color: whitesmoke;
     border-width: thin;
     display: flex;
@@ -39,6 +47,7 @@
     border-style: solid;
     border-top-style: none;
     border-bottom-style: none;
+    border-color: rgb(0, 0, 0);
     border-color: whitesmoke;
     border-width: thin;
     display: flex;
@@ -64,7 +73,8 @@
 .Fret{
     border-style: solid;
     border-width: 1px;
-    border-color: whitesmoke;
+    border-color:whitesmoke;
+    /* border-color: #a9a9a9; */
     height: 33px;
     width: 36px;
     text-align: center;
@@ -86,7 +96,7 @@
     margin-top: 25px;
     height: 15px;
     width: 15px;
-    background-color: #8A4EB0;
+    background-color: #6F3F8D;
     border-style: solid;
     border-width: thin;
     border-radius: 50%;
@@ -98,6 +108,7 @@
     width: 1000px;
     height: 100px;
     border-style: solid;
+    border-color: rgb(0, 0, 0);
     border-color: whitesmoke;
     border-width: thin;
     display: flex;

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import String from './String'
 import { connect } from 'react-redux';
-// import Frets from './Frets'
 
 class Fretboard extends Component {
   constructor(){

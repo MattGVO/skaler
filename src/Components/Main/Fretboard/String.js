@@ -77,7 +77,7 @@ class String extends Component {
   handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
 
   render() {
-    console.log(this.props.scaleNotes)
+    // console.log(this.props.scaleNotes)
     // console.log(this.state.fretCoordinates)
     // console.log(this.state.rootNoteCoordinate);
     return (

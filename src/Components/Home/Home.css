@@ -23,6 +23,7 @@ main{
     position: absolute;
     z-index: -1;
     background-color: #222728;
+    /* background-color: whitesmoke; */
     position: absolute;
   }
   
@@ -51,7 +52,7 @@ main{
 
   .Login {
     position: relative;
-    color: rgb(255, 255, 255);
+    color: whitesmoke;
     margin: 0px 10px;
     background: none;
     font-family: 'Prompt', sans-serif;

@@ -6,10 +6,10 @@
   color: whitesmoke;
   border-color: whitesmoke;
 }
-
-/* * {
+/* 
+* {
   margin: 0;
-  background-color: whites
+  background-color: rgb(220,220,220);
 } */
 
 header {
@@ -28,7 +28,6 @@ header {
 .header-items{
   margin: 0px 50px;
   background-color: #224d3c;
-   
 }
 
 main{
@@ -46,7 +45,7 @@ main{
 .logo {
   background-color: rgba(255, 255, 255, 0);
   height: 40px;
-  margin-left: 220px;
+  margin-left: 240px;
   position: absolute;
 }
 
@@ -59,44 +58,27 @@ main{
   border: none;
 }
 
-.login:hover{
-  font-size: 41px;
+.logo-button{
+  font-size: 40px;
+  font-family: 'Prompt', sans-serif;
+  text-decoration: none;
+  color: whitesmoke;
+  background: none;
+  border: none;
 }
 
-/* .login-image {
-  height: 100%;
-  margin: 0;
-  position: absolute;
-  z-index: -2;
-  opacity: .70;
-  background: black;
-  filter: grayscale(100%);
-  filter: blur(100%);
+input{
+  background: whitesmoke;
+  color: black;
+}
+button{
+  background: whitesmoke;
+  color: black;
 }
 
-.Login-container {
-  background: #224d3c;
-  width: 600px;
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  box-shadow: 0px 5px 5px #0000008c;
-  border-radius: 15px;
-  margin: 100px 0px;
+button:focus {
+  outline:0;
 }
-.Login {
-  position: relative;
-  color: rgb(255, 255, 255);
-  margin: 10px 0px;
-  background: #224d3c;
-  text-shadow: 5px 3px rgba(0, 0, 0, 0.377);
-}
-.Logo {
-  font-size: 150px;
-} */
-
 
 /* #3A214A dark purple
 #4A3A21 dark brown */
