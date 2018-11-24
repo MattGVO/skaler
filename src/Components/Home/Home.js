@@ -5,6 +5,7 @@ import logo from '../../skaler.svg'
 
 class Home extends Component {
     render() {
+      
       return (
         <div>
           <main>

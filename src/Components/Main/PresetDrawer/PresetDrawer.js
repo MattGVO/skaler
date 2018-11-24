@@ -12,9 +12,7 @@ const styles = {
   list: {
     width: 250,
   },
-  fullList: {
-    width: 'auto',
-  },
+  
 };
 
 class TemporaryDrawer extends React.Component {
