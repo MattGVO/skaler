@@ -8,22 +8,39 @@ class Fretboard extends Component {
 
     this.state = {
       numOfStrings: 1,
-      stringArray: []
+      stringArray: [],
+      defaultTuning: ["E", "A", "D", "G", "B", "E","A","D",]
     };
   }
-
-  render() {
-    const difference = this.props.numOfStrings - this.state.stringArray.length;
-    const negDifference = difference * -1;
-
-    if (difference >= 1) {
+  
+  componentDidMount() {
+    let difference = this.props.numOfStrings;
+    let stringArray = [];
+    
+    for (let i = 0; i < difference; i++) {
+      stringArray.push(<String string={this.state.defaultTuning[i]}/>);
+    }
+    this.setState({
+      stringArray: [...stringArray]
+    });
+  }
+  
+  componentDidUpdate(prevProps) {
+    if (this.props.numOfStrings !== prevProps.numOfStrings) {
+      let difference = this.props.numOfStrings;
+      let stringArray = [];
+      
       for (let i = 0; i < difference; i++) {
-        this.state.stringArray.push(<String />);
+        stringArray.push(<String string={this.state.defaultTuning[i]}/>);
       }
-    } else {
-      this.state.stringArray.splice(this.state.numOfStrings, negDifference);
+      this.setState({
+        stringArray: [...stringArray]
+      });
+    }
     }
 
+  render() {
+    console.log(this.state.stringArray)
     return (
       <div className="Fretboard">
         <div className="fretboard-key">

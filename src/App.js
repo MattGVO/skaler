@@ -3,17 +3,36 @@ import "./App.css";
 import Routes from "./Routes";
 import logo from "./skaler.svg";
 import { Link, withRouter } from "react-router-dom";
-import PresetDrawer from "./Components/Main/PresetDrawer/PresetDrawer";
+import { connect } from 'react-redux';
+import { updateUser } from './ducks/reducer'
+// import PresetDrawer from "./Components/Main/PresetDrawer/PresetDrawer";
 import axios from "axios";
 const authUrl = "/auth/";
 
 class App extends Component {
+  constructor(){
+    super();
+
+    this.state={
+      user: false,
+    }
+  }
+
+  async componentDidMount(){
+    if (this.props.user){
+      this.setState({
+        user: true,
+      })
+    }
+  }
+
   async logOut() {
     let res = await axios.get(`${authUrl}logout`);
     console.log(res.data.session)
   }
 
   render() {
+    console.log('app user',this.state.user)
     return (
       <div className="App">
         <header>
@@ -29,7 +48,7 @@ class App extends Component {
               <button className="login">login</button>
             </Link>
           ) : null}
-          {this.props.location.pathname === "/main" ? (
+          {this.props.location.pathname === "/main" && this.state.user? (
             <div className="header-items">
               <button className="logo-button">presets</button>
               {/* <PresetDrawer /> */}
@@ -39,7 +58,9 @@ class App extends Component {
                 </button>
               </Link>
             </div>
-          ) : null}
+          ) : <Link className="header-items" to="/login">
+          <button className="login">login</button>
+        </Link>}
         </header>
 
         {Routes}
@@ -48,4 +69,8 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+function mapStateToProps(state) {
+  return state;
+}
+
+export default withRouter(connect(mapStateToProps, {updateUser})(App));

@@ -5,12 +5,12 @@ const apiUrl = '/api/';
 var fretCoordinates =[];
 
 class String extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     
 
     this.state={
-      string: 'A',
+      string: this.props.string,
       fretArray: [],
       scaleNotes: [],
       fretCoordinates: [],
@@ -77,12 +77,10 @@ class String extends Component {
   handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
 
   render() {
-    // console.log(this.props.scaleNotes)
-    // console.log(this.state.fretCoordinates)
-    // console.log(this.state.rootNoteCoordinate);
+    console.log(this.props)
     return (
       <div className="StringAndFret">
-        <select name="string" onChange={this.handleChange}>
+        <select value={this.state.string} name="string" onChange={this.handleChange}>
           <option value="A">A</option>
           <option value="A#">A#</option>
           <option value="B">B</option>

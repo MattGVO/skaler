@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ScaleName from './ScaleName';
 import NumOfStrings from './NumOfStrings';
 import RootNote from './RootNote';
+// import SavePreset from './SavePreset';
 import { connect } from 'react-redux';
 import { updateScale } from '../../../ducks/reducer'
 
@@ -42,6 +43,7 @@ class ScaleSelector extends Component {
        scaleName = {this.state.scaleName}
        />
        <NumOfStrings/>
+       {/* <SavePreset/> */}
       </div>
     );
   }

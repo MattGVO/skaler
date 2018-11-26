@@ -2,7 +2,7 @@ const initialState = {
   numOfStrings: 1,
   scaleName: "A Major/Aeolian",
   scaleNotes:['A','B','C#','D','E','F#','G#'],
-  user: {},
+  user: null,
 };
 
 const NUM_OF_STRINGS = "NUM_OF_STRINGS";

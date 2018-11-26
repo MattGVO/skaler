@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ScaleSelector from "./ScaleSelector/ScaleSelector";
 import FretBoard from "./Fretboard/Fretboard";
 import ScaleNotes from "./ScaleNotes/ScaleNotes";
+import { connect } from "react-redux";
+import { updateUser } from '../../ducks/reducer'
 import "./Main.css";
 import Home from "../Home/Home";
 import axios from "axios";
@@ -22,6 +24,7 @@ class Main extends Component {
       this.setState({
         user: true
       });
+      this.props.updateUser(res.data.useremail)
     }
   }
 
@@ -45,4 +48,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default connect(null, {updateUser} )(Main);
