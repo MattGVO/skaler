@@ -29,7 +29,6 @@ class Main extends Component {
   }
 
   render() {
-    console.log("user:", this.state.user);
     return (
       <div>
         {!this.state.user ? (

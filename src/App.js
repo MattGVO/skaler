@@ -10,21 +10,6 @@ import axios from "axios";
 const authUrl = "/auth/";
 
 class App extends Component {
-  constructor(){
-    super();
-
-    this.state={
-      user: false,
-    }
-  }
-
-  async componentDidMount(){
-    if (this.props.user){
-      this.setState({
-        user: true,
-      })
-    }
-  }
 
   async logOut() {
     let res = await axios.get(`${authUrl}logout`);
@@ -32,7 +17,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('app user',this.state.user)
     return (
       <div className="App">
         <header>
@@ -43,12 +27,12 @@ class App extends Component {
             <h3 className="header-items">SKALER</h3>
           </button>
           <img className="logo header-items" src={logo} alt="logo" />
-          {this.props.location.pathname === "/" ? (
+          {/* {this.props.location.pathname === "/" ? (
             <Link className="header-items" to="/login">
               <button className="login">login</button>
             </Link>
-          ) : null}
-          {this.props.location.pathname === "/main" && this.state.user? (
+          ) : null} */}
+          {this.props.location.pathname === "/main" && this.props.user ? (
             <div className="header-items">
               <button className="logo-button">presets</button>
               {/* <PresetDrawer /> */}

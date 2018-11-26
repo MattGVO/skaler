@@ -77,7 +77,6 @@ class String extends Component {
   handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
 
   render() {
-    console.log(this.props)
     return (
       <div className="StringAndFret">
         <select value={this.state.string} name="string" onChange={this.handleChange}>

@@ -40,7 +40,6 @@ class Fretboard extends Component {
     }
 
   render() {
-    console.log(this.state.stringArray)
     return (
       <div className="Fretboard">
         <div className="fretboard-key">
