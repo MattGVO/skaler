@@ -13,6 +13,7 @@
 } */
 
 header {
+  position: relative;
   background-color: #224d3c;
   min-height: 10vh;
   display: flex;
@@ -23,6 +24,7 @@ header {
   width: 100vw;
   box-shadow: 0px 5px 5px #0000008c;
   font-family: 'Prompt', sans-serif;
+  z-index: 4;
 }
 
 .header-items{
@@ -38,7 +40,6 @@ main{
   flex-direction: column;
   width: 100vw;
   position: absolute;
-  z-index: -1;
   background-color: whitesmoke;
 }
 

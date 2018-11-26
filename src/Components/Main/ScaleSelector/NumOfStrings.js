@@ -7,7 +7,7 @@ class NumOfStrings extends Component {
     super(props);
 
     this.state ={
-      numOfStrings: "1",
+      numOfStrings: "6",
     }
   }
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ScaleSelector from "./ScaleSelector/ScaleSelector";
 import FretBoard from "./Fretboard/Fretboard";
 import ScaleNotes from "./ScaleNotes/ScaleNotes";
+import UserDrawer from './UserDrawer/UserDrawer';
 import { connect } from "react-redux";
 import { updateUser } from '../../ducks/reducer'
 import "./Main.css";
@@ -30,11 +31,12 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
+      <div className ="main-container">
         {!this.state.user ? (
           <Home user={this.state.user}/>
-        ) : (
-          <div className="main-container">
+          ) : (
+            <div className="preset-layer">
+            <UserDrawer className="preset-layer"/>
             <div className="main-container-background">
               <ScaleSelector />
               <FretBoard />

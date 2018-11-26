@@ -7,7 +7,7 @@ class Fretboard extends Component {
     super();
 
     this.state = {
-      numOfStrings: 1,
+      numOfStrings: 2,
       stringArray: [],
       defaultTuning: ["E", "A", "D", "G", "B", "E","A","D",]
     };

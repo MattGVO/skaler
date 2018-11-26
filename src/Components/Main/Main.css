@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: -4;
 }
 
 .main-container-background{
@@ -156,5 +157,20 @@ span{
 
 select {
     height: 35px;
+}
+
+
+
+.preset-drawer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    right: 0px;
+    top: 10vh;
+    background: #224d3c;
+    width: 20vw;
+    height: 90vh;
+    z-index: 1;
 }
 
