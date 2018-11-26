@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ScaleName from './ScaleName';
 import NumOfStrings from './NumOfStrings';
 import RootNote from './RootNote';
-// import SavePreset from './SavePreset';
 import { connect } from 'react-redux';
 import { updateScale } from '../../../ducks/reducer'
 
@@ -22,7 +21,6 @@ class ScaleSelector extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // Typical usage (don't forget to compare props):
     if (this.state !== prevProps) {
       this.props.updateScale(`${this.state.rootNote} ${this.state.scaleName}`)
     }
@@ -30,7 +28,6 @@ class ScaleSelector extends Component {
   
   
   render() {
-    // this.props.updateScale(`${this.state.rootNote} ${this.state.scaleName}`)
     
     return (
       <div className="ScaleSelector">
@@ -43,7 +40,6 @@ class ScaleSelector extends Component {
        scaleName = {this.state.scaleName}
        />
        <NumOfStrings/>
-       {/* <SavePreset/> */}
       </div>
     );
   }

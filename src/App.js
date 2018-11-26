@@ -6,7 +6,9 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { updateUser, drawerDisplay } from './ducks/reducer'
 import axios from "axios";
+
 const authUrl = "/auth/";
+
 
 class App extends Component {
   constructor(){
@@ -50,12 +52,7 @@ class App extends Component {
           <img className="logo header-items" src={logo} alt="logo" />
           {this.props.location.pathname === "/main" && this.props.user ? (
             <div className="header-items">
-              <button onClick={this.openCloseDrawer} className="logo-button">presets</button>
-              <Link className="header-items" to="/">
-                <button className="login" onClick={this.logOut}>
-                  logout
-                </button>
-              </Link>
+              <button onClick={this.openCloseDrawer} className="logo-button">menu</button>
             </div>
           ) : <Link className="header-items" to="/login">
           <button  className="login">login</button>

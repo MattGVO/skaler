@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+import axios from 'axios';
+import {Link} from 'react-router-dom'
+const authUrl = "/auth/";
 
 class UserDrawer extends Component{
   constructor(props){
@@ -8,6 +11,11 @@ class UserDrawer extends Component{
     this.state={
       hidden: false,
     }
+  }
+
+  async logOut() {
+    let res = await axios.get(`${authUrl}logout`);
+    console.log(res.data.session)
   }
 
   componentDidUpdate(prevProps) {
@@ -19,12 +27,15 @@ class UserDrawer extends Component{
   }
 
   render(){
-    console.log(this.state.hidden)
     return(
-      <div style={!this.state.hidden?{display:"none",}:{}}className="preset-drawer">
+      <div style={!this.state.hidden?{width:"0vw",}:{}}className="preset-drawer">
         <p>user info</p>
         <p>presets</p>
-        <p>logout</p>
+        <Link className="header-items" to="/">
+                <button className="login" onClick={this.logOut}>
+                  logout
+                </button>
+              </Link>
       </div>
     )
   }

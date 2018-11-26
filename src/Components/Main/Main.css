@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     z-index: -4;
+    overflow: hidden;
 }
 
 .main-container-background{
@@ -92,6 +93,7 @@
     border-radius: 50%;
     display: inline-block;
     position: relative;
+    transition: opacity 0.5s;
   }
 
   .root-dot{
@@ -172,5 +174,23 @@ select {
     width: 20vw;
     height: 90vh;
     z-index: 1;
+    transition:  width 200ms;
+    overflow: hidden;
 }
 
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 300ms;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

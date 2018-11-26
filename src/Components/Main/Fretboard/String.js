@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import axios from 'axios';
+// import 'w3-css/w3.css';
 const apiUrl = '/api/';
 var fretCoordinates =[];
 
@@ -70,6 +71,7 @@ class String extends Component {
       rootNoteCoordinate: resultTwo.data,
     })
     }
+    this.props.updateTuning(this.props.index,this.state.string)
   }
 
   
@@ -94,7 +96,7 @@ class String extends Component {
           <option value="G#">G#</option>
         </select>
         {this.state.fretArray.map((val,i) => {
-          return <div className="Fret" key={i}>{this.state.fretCoordinates.includes(i)? <span className={!this.state.rootNoteCoordinate.includes(i)?"dot": "root-dot"}></span> : null}</div>
+          return <div className="Fret" key={i}>{this.state.fretCoordinates.includes(i)? <span className={!this.state.rootNoteCoordinate.includes(i)?"dot fade-in" : "root-dot fade-in"}></span> : null}</div>
         })}
       </div>
     );
