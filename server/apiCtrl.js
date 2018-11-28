@@ -20,4 +20,19 @@ module.exports ={
         let {fret,fretrpt} = rootFound[0]
         res.status(200).send([fret,fretrpt])
     },
+    async getAllTunings(req,res) {
+        let {user} =req.body
+        let db = req.app.get('db')
+        let foundTunings = await db.scales.get_all_tunings([user])
+        res.status(200).send(foundTunings)
+    },
+    async getTuning(req,res){
+        let { user,tuningName } = req.body
+        let db = req.app.get('db')
+        let [foundTuning] = await db.scales.get_tuning([user,tuningName])
+        let { one,two,three,four,five,six,seven,eight } = foundTuning
+        let tuning = [one,two,three,four,five,six,seven,eight]
+        console.log(tuning)
+        res.status(200).send(tuning)
+    }
 }

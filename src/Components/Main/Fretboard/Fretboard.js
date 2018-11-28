@@ -1,27 +1,25 @@
 import React, { Component } from "react";
 import String from "./String";
 import { connect } from "react-redux";
-import { updateTuning } from '../../../ducks/reducer'
 
 class Fretboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       numOfStrings: 2,
       stringArray: [],
-      defaultTuning: ["E", "A", "D", "G", "B", "E", "A", "D"]
+      tuning: ["E", "A", "D", "G", "B", "E", "A", "A"]
     };
     this.updateTuning= this.updateTuning.bind(this)
   }
-
+  
   updateTuning(index,note){
-    var tuneArr = [...this.state.defaultTuning]
+    var tuneArr = [...this.state.tuning]
     tuneArr.splice(index,1,note)
     this.setState({
-      defaultTuning: [...tuneArr]
+      tuning: [...tuneArr]
     })
-    // this.props.updateTuning(this.state.defaultTuning)
   }
 
   componentDidMount() {
@@ -30,7 +28,7 @@ class Fretboard extends Component {
 
     for (let i = 0; i < difference; i++) {
       stringArray.push(
-        <String updateTuning ={this.updateTuning} index={i} string={this.state.defaultTuning[i]} />
+        <String updateTuning ={this.updateTuning} index={i} string={this.state.tuning[i]} />
       );
     }
     this.setState({
@@ -45,7 +43,7 @@ class Fretboard extends Component {
 
       for (let i = 0; i < difference; i++) {
         stringArray.push(
-        <String updateTuning ={this.updateTuning} index={i} string={this.state.defaultTuning[i]} />
+        <String updateTuning ={this.updateTuning} index={i} string={this.state.tuning[i]} />
         );
       }
       this.setState({
@@ -77,4 +75,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps, {updateTuning} )(Fretboard);
+export default connect(mapStateToProps)(Fretboard);

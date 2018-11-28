@@ -19,6 +19,13 @@ app.use(session({
     saveUninitialized: false,
 }))
 
+var sessionObj={
+    rootNote: 'A',
+    scaleName: 'Major/Aelian',
+    numOfStrings: 6,
+    tuningName: '',
+}
+
 const apiUrl = '/api/'
 const authUrl = '/auth/'
 
@@ -35,5 +42,9 @@ app.post(`${authUrl}login`, authCtrl.login)
 app.get(`${authUrl}user-data`,authCtrl.userData)
 
 app.get(`${authUrl}logout`,authCtrl.logout)
+
+app.post(`${apiUrl}get-all-tunings`, apiCtrl.getAllTunings)
+
+app.post(`${apiUrl}get-tuning`, apiCtrl.getTuning)
 
 app.listen( port, () => console.log( `port ${port} is listening` ) );

@@ -8,14 +8,17 @@ import { updateUser } from '../../ducks/reducer'
 import "./Main.css";
 import Home from "../Home/Home";
 import axios from "axios";
+
 const authUrl = "/auth/";
+const apiUrl = '/api/'
 
 class Main extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user: false
+      user: false,
+      tuningName: '',
     };
   }
 
@@ -29,21 +32,37 @@ class Main extends Component {
     }
   }
 
+  async componentDidUpdate(prevState){
+    if (this.state.tuningName !== prevState.tuningName){
+      let res1 = await axios.get(`${authUrl}user-data`);
+      let res = await axios.post(`${apiUrl}get-tuning`, {
+        user: res1.data.useremail,
+        tuningName: this.state.tuningName
+      })
+      console.log(res.data)
+    }
+  }
+
+  handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
+
   render() {
     return (
-      <div className ="main-container">
-        {!this.state.user ? (
-          <Home user={this.state.user}/>
-          ) : (
+      <div >
+        {!this.state.user ? 
+          <Home/>
+           : 
             <div className="preset-layer">
-            <UserDrawer className="preset-layer"/>
+            <UserDrawer handleChange={this.handleChange} className="preset-layer"/>
+            <div className="main-container">
             <div className="main-container-background">
               <ScaleSelector />
               <FretBoard />
               <ScaleNotes />
             </div>
+
+            </div>
           </div>
-        )}
+        }
       </div>
     );
   }

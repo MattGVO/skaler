@@ -12,7 +12,7 @@ const SCALE_NAME = "SCALE_NAME";
 const SCALE_NOTES = "SCALE_NOTES";
 const USER_DATA = "USER_DATA";
 const DRAWER_DISPLAY = "DRAWER_DISPLAY";
-const UDATE_TUNING = "UDATE_TUNING";
+const UPDATE_TUNING = "UPDATE_TUNING";
 
 export function updateString(numOfStrings) {
   return {
@@ -49,9 +49,9 @@ export function drawerDisplay(display) {
   };
 }
 
-export function updateTuning(tuning) {
+export function updateDuxTuning(tuning) {
   return {
-    type: UDATE_TUNING,
+    type: UPDATE_TUNING,
     payload: tuning
   };
 }
@@ -68,7 +68,7 @@ export default function reducer(state = initialState, action) {
       return { ...state, user: action.payload };
     case DRAWER_DISPLAY:
       return { ...state, drawerDisplay: action.payload };
-    case UDATE_TUNING:
+    case UPDATE_TUNING:
       return { ...state, tuning: action.payload };
     default:
       return state;
