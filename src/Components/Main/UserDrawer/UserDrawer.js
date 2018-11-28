@@ -11,6 +11,7 @@ class UserDrawer extends Component {
 
     this.state = {
       hidden: false,
+      tuningName: '',
       tunings:[],
     };
   }
@@ -39,10 +40,14 @@ class UserDrawer extends Component {
     }
   }
 
+ 
+
   async logOut() {
     let res = await axios.get(`${authUrl}logout`);
     console.log(res.data.session);
   }
+
+  handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
 
   render() {
     return (

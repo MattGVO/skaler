@@ -4,7 +4,8 @@ import FretBoard from "./Fretboard/Fretboard";
 import ScaleNotes from "./ScaleNotes/ScaleNotes";
 import UserDrawer from './UserDrawer/UserDrawer';
 import { connect } from "react-redux";
-import { updateUser } from '../../ducks/reducer'
+import { updateUser } from '../../ducks/reducer';
+import { updateDuxTuning } from '../../ducks/reducer';
 import "./Main.css";
 import Home from "../Home/Home";
 import axios from "axios";
@@ -26,20 +27,20 @@ class Main extends Component {
     let res = await axios.get(`${authUrl}user-data`);
     if (res.data.useremail) {
       this.setState({
-        user: true
+        user: res.data.useremail
       });
       this.props.updateUser(res.data.useremail)
     }
   }
 
-  async componentDidUpdate(prevState){
+  async componentDidUpdate(prevProps,prevState){
     if (this.state.tuningName !== prevState.tuningName){
-      let res1 = await axios.get(`${authUrl}user-data`);
+
       let res = await axios.post(`${apiUrl}get-tuning`, {
-        user: res1.data.useremail,
+        user: this.state.user,
         tuningName: this.state.tuningName
       })
-      console.log(res.data)
+      this.props.updateDuxTuning(res.data)
     }
   }
 
@@ -56,7 +57,7 @@ class Main extends Component {
             <div className="main-container">
             <div className="main-container-background">
               <ScaleSelector />
-              <FretBoard />
+              <FretBoard tuning={this.state.tuning} />
               <ScaleNotes />
             </div>
 
@@ -68,4 +69,4 @@ class Main extends Component {
   }
 }
 
-export default connect(null, {updateUser} )(Main);
+export default connect(null, {updateUser, updateDuxTuning} )(Main);

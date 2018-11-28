@@ -37,7 +37,14 @@ class Fretboard extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    if(this.props.tuning !== prevProps.tuning){
+      var tuneArr = this.props.tuning
+      this.setState({
+        tuning: [...tuneArr]
+      })
+    }
     if (this.props.numOfStrings !== prevProps.numOfStrings) {
+      
       let difference = this.props.numOfStrings;
       let stringArray = [];
 
@@ -55,6 +62,7 @@ class Fretboard extends Component {
  
 
   render() {
+    console.log(this.state.tuning)
     return (
       <div className="Fretboard">
         <div className="fretboard-key">

@@ -49,9 +49,14 @@ class String extends Component {
   }
 
   async componentDidUpdate(prevProps, prevState) {
+    if(this.props.tuning[this.props.index]!== prevProps.tuning[this.props.index]){
+      this.setState({
+        string: this.props.tuning[this.props.index]
+      })
+    }
     if (this.props.scaleNotes !== prevProps.scaleNotes || this.state.string !== prevState.string) {
       var stringAndNotesArr = [this.state.string,...this.props.scaleNotes]
-
+     
       let result = await axios.post(`${apiUrl}getfret`, {
         stringAndNotesArr
       })
