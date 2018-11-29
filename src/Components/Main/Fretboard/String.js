@@ -16,9 +16,9 @@ class String extends Component {
       fretCoordinates: [],
       rootNoteCoordinate: [],
     }
-    for (let i =0; i < 24; i++){
+    for (let i =0; i < this.props.numOfFrets; i++){
       this.state.fretArray.push([i])
-   }
+  }
     
   }
   
@@ -48,6 +48,15 @@ class String extends Component {
   }
 
   async componentDidUpdate(prevProps, prevState) {
+    if (this.props.numOfFrets !== prevProps.numOfFrets){
+      let fretArray = []
+      for (let i =0; i < this.props.numOfFrets; i++){
+        fretArray.push([i])
+    }
+    this.setState({
+      fretArray: [...fretArray]
+    })
+  }
     if(this.props.tuning !== prevProps.tuning){
       this.setState({
         string: this.props.tuning[this.props.index]
@@ -84,6 +93,7 @@ class String extends Component {
   handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
 
   render() {
+    console.log(this.props.numOfFrets)
     return (
       <div className="StringAndFret">
         <select value={this.state.string} name="string" onChange={this.handleChange}>

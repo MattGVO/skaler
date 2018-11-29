@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { updateUser } from "../../../ducks/reducer";
 const authUrl = "/auth/";
 const apiUrl = "/api/";
 
@@ -15,7 +15,7 @@ class UserDrawer extends Component {
       delete: false,
       save: false,
       updateName: this.props.tuningName,
-      tunings: [],
+      tunings: []
     };
     this.updatePreset = this.updatePreset.bind(this);
     this.deletePreset = this.deletePreset.bind(this);
@@ -29,6 +29,7 @@ class UserDrawer extends Component {
       user = res.data.useremail;
     } else {
       user = await this.props.user;
+      console.log("user", user);
     }
     let res = await axios.post(`${apiUrl}get-all-tunings`, {
       user
@@ -44,11 +45,6 @@ class UserDrawer extends Component {
         hidden: this.props.drawerDisplay
       });
     }
-  }
-
-  async logOut() {
-    let res = await axios.get(`${authUrl}logout`);
-    console.log(res.data.session);
   }
 
   updatePreset() {
@@ -87,34 +83,33 @@ class UserDrawer extends Component {
     }
   }
 
-  handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   render() {
-    console.log(this.state.updateName);
+    console.log(this.state.save);
     return (
       <div
         style={!this.state.hidden ? { width: "0vw" } : {}}
         className="preset-drawer"
       >
-        {/* <div>
-          <p>user info</p>
-        </div> */}
         <div className="drawer-items">
-
           <h1 className="drawer-items">presets</h1>
-          {!this.state.update? <select name="tuningName" onChange={this.props.handleChange}>
-            <option value="" hidden>
-              Choose Tuning
-            </option>
-            {this.state.tunings.map((val, i) => {
-              return (
-                <option value={val.tuningname} key={i}>
-                  {val.tuningname}
-                </option>
-              );
-            })}
-          </select>:null}
-          
+          {!this.state.update ? (
+            <select name="tuningName" onChange={this.props.handleChange}>
+              <option value="" hidden>
+                Choose Tuning
+              </option>
+              {this.state.tunings.map((val, i) => {
+                return (
+                  <option value={val.tuningname} key={i}>
+                    {val.tuningname}
+                  </option>
+                );
+              })}
+            </select>
+          ) : null}
 
           {this.props.tuningName && !this.state.update && !this.state.delete ? (
             <div className="drawer-items">
@@ -125,9 +120,15 @@ class UserDrawer extends Component {
 
           {this.props.tuningName && this.state.update ? (
             <div className="drawer-items">
-              <input name="updateName" defaultValue={this.props.tuningName} onChange={this.handleChange} />
-              <button type="button" >Submit</button>
-              <button type="button" onClick={this.updatePreset}>Cancel</button>
+              <input
+                name="updateName"
+                defaultValue={this.props.tuningName}
+                onChange={this.handleChange}
+              />
+              <button type="button">Submit</button>
+              <button type="button" onClick={this.updatePreset}>
+                Cancel
+              </button>
             </div>
           ) : null}
 
@@ -140,13 +141,27 @@ class UserDrawer extends Component {
             </div>
           ) : null}
 
-          <button onClick={this.savePreset}>Save Tuning</button>
+          {this.state.save ? (
+            <div className="drawer-items">
+              <input
+                name="updateName"
+                defaultValue={this.props.tuningName}
+                onChange={this.handleChange}
+              />
+              <button type="button">Submit</button>
+              <button type="button" onClick={this.savePreset}>
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <button onClick={this.savePreset}>Save Tuning</button>
+          )}
         </div>
-        <Link className="header-items" to="/">
-          <button className="login" onClick={this.logOut}>
+        <div className="header-items">
+          <button className="login" onClick={this.props.logOut}>
             logout
           </button>
-        </Link>
+        </div>
       </div>
     );
   }
@@ -156,4 +171,7 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps)(UserDrawer);
+export default connect(
+  mapStateToProps,
+  { updateUser }
+)(UserDrawer);

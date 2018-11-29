@@ -18,12 +18,13 @@ class Main extends Component {
     super(props);
 
     this.state = {
-      user: false,
+      user: null,
       tuningName: '',
     };
+    this.logOut = this.logOut.bind(this)
   }
 
-  async componentDidMount() {
+  async componentDidMount(){
     let res = await axios.get(`${authUrl}user-data`);
     if (res.data.useremail) {
       this.setState({
@@ -46,6 +47,17 @@ class Main extends Component {
 
   handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
 
+
+  async logOut() {
+    this.props.updateUser(null)
+    let res = await axios.get(`${authUrl}logout`);
+    console.log(res.data)
+    this.setState({
+      user: null
+    })
+    this.props.history.push('/')
+   }
+
   render() {
     return (
       <div >
@@ -53,11 +65,11 @@ class Main extends Component {
           <Home/>
            : 
             <div className="preset-layer">
-            <UserDrawer tuningName ={this.state.tuningName} handleChange={this.handleChange} className="preset-layer"/>
+            <UserDrawer logOut={this.logOut} tuningName ={this.state.tuningName} handleChange={this.handleChange} className="preset-layer"/>
             <div className="main-container">
             <div className="main-container-background">
               <ScaleSelector />
-              <FretBoard tuning={this.state.tuning} />
+              <FretBoard />
               <ScaleNotes />
             </div>
 

@@ -41,7 +41,9 @@ module.exports = {
     },
     logout(req,res) {
         req.session.destroy();
+        res.status(200).send('Thank for to come to my site!')
         res.redirect(HOME_PATH)
+        console.log(req.session.user)
     },
     
 }

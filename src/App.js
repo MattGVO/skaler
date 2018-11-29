@@ -5,14 +5,12 @@ import logo from "./skaler.svg";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import { updateUser, drawerDisplay } from './ducks/reducer'
-import axios from "axios";
 
-const authUrl = "/auth/";
 
 
 class App extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
     this.state={
       drawerDisplay: false,
@@ -32,11 +30,6 @@ class App extends Component {
         drawerDisplay: true
       })
     }
-  }
-
-  async logOut() {
-    let res = await axios.get(`${authUrl}logout`);
-    console.log(res.data.session)
   }
 
   render() {

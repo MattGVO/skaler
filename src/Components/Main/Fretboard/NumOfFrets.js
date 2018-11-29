@@ -2,17 +2,6 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 
 class NumOfFrets extends Component {
-  constructor(props){
-    super(props);
-
-    this.state ={
-      numOfFrets: "22",
-    }
-  }
-
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value }); 
-    }
 
   render() {
     return (
@@ -20,10 +9,11 @@ class NumOfFrets extends Component {
         # of Strings:
         <select 
         name="numOfFrets" 
-        onChange={this.handleChange} 
-        value={this.state.numOfFrets}>
+        onChange={this.props.handleChange} 
+        value={this.props.numOfFrets}>
           <option value="12">12</option>
-          <option value="13">14</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
           <option value="15">15</option>
           <option value="16">17</option>
           <option value="18">19</option>
