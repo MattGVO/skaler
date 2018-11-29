@@ -164,6 +164,7 @@ select {
 
 
 .preset-drawer{
+    background: #224d3c;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -185,6 +186,9 @@ select {
 	animation-timing-function: ease-in;
 	animation-duration: 300ms;
 }
+.drawer-items {
+    background: #224d3c;
+  }
 
 @keyframes fadeInOpacity {
 	0% {

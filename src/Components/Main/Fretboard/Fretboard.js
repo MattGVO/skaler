@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import String from "./String";
 import { connect } from "react-redux";
+import { updateDuxTuning } from '../../../ducks/reducer';
 
 class Fretboard extends Component {
   constructor(props) {
@@ -62,12 +63,12 @@ class Fretboard extends Component {
  
 
   render() {
-    console.log(this.state.tuning)
     return (
       <div className="Fretboard">
         <div className="fretboard-key">
           <span> Root Note: </span>
           <span className="key-dot" />
+          <span># of Frets</span>
         </div>
         <div className="StringContainer">
           {this.state.stringArray.map((val, i) => {
@@ -83,4 +84,4 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps)(Fretboard);
+export default connect(mapStateToProps, {updateDuxTuning})(Fretboard);

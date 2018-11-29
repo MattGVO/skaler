@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import axios from 'axios';
-// import 'w3-css/w3.css';
 const apiUrl = '/api/';
 var fretCoordinates =[];
 
@@ -49,7 +48,7 @@ class String extends Component {
   }
 
   async componentDidUpdate(prevProps, prevState) {
-    if(this.props.tuning[this.props.index]!== prevProps.tuning[this.props.index]){
+    if(this.props.tuning !== prevProps.tuning){
       this.setState({
         string: this.props.tuning[this.props.index]
       })
@@ -78,6 +77,7 @@ class String extends Component {
     }
     this.props.updateTuning(this.props.index,this.state.string)
   }
+
 
   
 

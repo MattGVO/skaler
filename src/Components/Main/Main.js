@@ -53,7 +53,7 @@ class Main extends Component {
           <Home/>
            : 
             <div className="preset-layer">
-            <UserDrawer handleChange={this.handleChange} className="preset-layer"/>
+            <UserDrawer tuningName ={this.state.tuningName} handleChange={this.handleChange} className="preset-layer"/>
             <div className="main-container">
             <div className="main-container-background">
               <ScaleSelector />

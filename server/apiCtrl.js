@@ -32,7 +32,6 @@ module.exports ={
         let [foundTuning] = await db.scales.get_tuning([user,tuningName])
         let { one,two,three,four,five,six,seven,eight } = foundTuning
         let tuning = [one,two,three,four,five,six,seven,eight]
-        console.log(tuning)
         res.status(200).send(tuning)
     }
 }
