@@ -1,9 +1,4 @@
 const path = require('path'); // Usually moved to the start of file
-
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../build/index.html'));
-});
-
 const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
@@ -53,5 +48,10 @@ app.get(`${authUrl}logout`,authCtrl.logout)
 app.post(`${apiUrl}get-all-tunings`, apiCtrl.getAllTunings)
 
 app.post(`${apiUrl}get-tuning`, apiCtrl.getTuning)
+
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
 
 app.listen( port, () => console.log( `port ${port} is listening` ) );
