@@ -1,3 +1,9 @@
+const path = require('path'); // Usually moved to the start of file
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
 const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
@@ -12,6 +18,7 @@ const port = SERVER_PORT;
 
 massive( CONNECTION_STRING ).then( db => app.set( 'db',db ))
 
+app.use( express.static( `${__dirname}/../build` ) )
 app.use(express.json())
 app.use(session({
     secret: SESSION_SECRET,

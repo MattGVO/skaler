@@ -12,7 +12,6 @@ class NumOfFrets extends Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value }); 
-    this.props.updateString(e.target.value) 
     }
 
   render() {

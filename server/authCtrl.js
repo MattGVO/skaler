@@ -1,4 +1,7 @@
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
+
+const { HOME_PATH } = process.env;
 
 module.exports = {
     async signup(req,res) {
@@ -38,7 +41,7 @@ module.exports = {
     },
     logout(req,res) {
         req.session.destroy();
-        res.redirect('http://localhost:3000')
+        res.redirect(HOME_PATH)
     },
     
 }
