@@ -9,7 +9,7 @@ class Fretboard extends Component {
     super(props);
 
     this.state = {
-      numOfFrets: 22,
+      numOfFrets: 23,
       numOfStrings: 2,
       stringArray: [],
       tuning: ["E", "A", "D", "G", "B", "E", "A", "A"]
@@ -54,7 +54,6 @@ class Fretboard extends Component {
     if (this.state.numOfFrets !== prevState.numOfFrets) {
       let difference = this.props.numOfStrings;
       let stringArray = [];
-      console.log(stringArray)
 
       for (let i = 0; i < difference; i++) {
         stringArray.push(
@@ -66,7 +65,6 @@ class Fretboard extends Component {
           />
         );
       }
-      console.log(stringArray)
       this.setState({
         stringArray: [...stringArray]
       });
@@ -96,7 +94,6 @@ class Fretboard extends Component {
   };
 
   render() {
-    console.log(this.state.stringArray)
     return (
       <div className="Fretboard">
         <div className="fretboard-key">
@@ -109,7 +106,6 @@ class Fretboard extends Component {
           />
         </div>
         <div className="StringContainer">
-          0 1 2 3 4 5 6 7 8 9 10 11 12
           {this.state.stringArray.map((val, i) => {
             return <div  key={i}>{val}</div>;
           })}

@@ -49,8 +49,9 @@ class String extends Component {
 
   async componentDidUpdate(prevProps, prevState) {
     if (this.props.numOfFrets !== prevProps.numOfFrets){
+      let numOfFrets =this.props.numOfFrets
       let fretArray = []
-      for (let i =0; i < this.props.numOfFrets; i++){
+      for (let i =0; i < numOfFrets; i++){
         fretArray.push([i])
     }
     this.setState({
@@ -93,7 +94,7 @@ class String extends Component {
   handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
 
   render() {
-    console.log(this.props.numOfFrets)
+    
     return (
       <div className="StringAndFret">
         <select value={this.state.string} name="string" onChange={this.handleChange}>
@@ -111,7 +112,15 @@ class String extends Component {
           <option value="G#">G#</option>
         </select>
         {this.state.fretArray.map((val,i) => {
-          return <div className="Fret" key={i}>{this.state.fretCoordinates.includes(i)? <span className={!this.state.rootNoteCoordinate.includes(i)?"dot fade-in" : "root-dot fade-in"}></span> : null}</div>
+          return <div 
+          className="Fret" 
+          key={i}>
+          {this.state.fretCoordinates.includes(i)? 
+          <span className={!this.state.rootNoteCoordinate.includes(i)?"dot fade-in" : "root-dot fade-in"}></span>
+          : null}
+          {this.props.index ===0? <span className ="fret-number">{i}</span>:null}
+          </div> 
+
         })}
       </div>
     );

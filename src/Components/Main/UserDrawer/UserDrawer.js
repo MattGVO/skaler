@@ -88,7 +88,8 @@ class UserDrawer extends Component {
   };
 
   render() {
-    console.log(this.state.save);
+    
+    
     return (
       <div
         style={!this.state.hidden ? { width: "0vw" } : {}}
