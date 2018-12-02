@@ -44,4 +44,13 @@ module.exports ={
              one, two, three, four, five, six, seven, eight])
         res.sendStatus(200)
     },
+    async deleteTuning(req,res){
+        let { user,tuningName } = req.body
+        let db = req.app.get('db')
+        let [deleteTuning] = await db.scales.delete_tuning([user,tuningName])
+        res.sendStatus(200)
+    },
+    async updateDbTuning(req,res){
+        console.log(req.body)
+    },
 }

@@ -26,6 +26,8 @@ class Main extends Component {
     this.logOut = this.logOut.bind(this);
     this.updateTuning = this.updateTuning.bind(this);
     this.submitTuning = this.submitTuning.bind(this);
+    this.deleteTuning = this.deleteTuning.bind(this);
+    this.updateDbTuning = this.updateDbTuning.bind(this);
   }
 
   updateTuning(index, note) {
@@ -56,13 +58,25 @@ class Main extends Component {
     }
   }
 
-  async submitTuning() {
+  async submitTuning(callback) {
     let res = await axios.post(`${apiUrl}save-tuning`,{
       user: this.state.user,
       tuningName: this.state.updateName,
       tuning: this.state.tuning,
     })
     console.log(res.data)
+  }
+
+  async deleteTuning(){
+    let res = await axios.post(`${apiUrl}delete-tuning`,{
+      user: this.state.user,
+      tuningName: this.state.tuningName,
+    })
+    console.log(res.data)
+  }
+
+  async updateDbTuning(){
+    let res = await axios.post(`${apiUrl}update-db-tuning`)
   }
 
   handleChange = e => {
@@ -80,7 +94,7 @@ class Main extends Component {
   }
 
   render() {
-    console.log(this.state.updateName)
+    console.log(this.state.tuningName)
     return (
       <div>
         {!this.state.user ? (
@@ -88,6 +102,8 @@ class Main extends Component {
         ) : (
           <div className="preset-layer">
             <UserDrawer
+              updateDbTuning={this.updateDbTuning}
+              deleteTuning={this.deleteTuning}
               submitTuning={this.submitTuning}
               tuning={this.state.tuning}
               logOut={this.logOut}

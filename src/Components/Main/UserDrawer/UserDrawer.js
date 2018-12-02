@@ -15,7 +15,7 @@ class UserDrawer extends Component {
       delete: false,
       save: false,
       updateName: this.props.tuningName,
-      tunings: []
+      tunings: [],
     };
     this.updatePreset = this.updatePreset.bind(this);
     this.deletePreset = this.deletePreset.bind(this);
@@ -130,7 +130,7 @@ class UserDrawer extends Component {
           {this.props.tuningName && !this.state.update && this.state.delete ? (
             <div className="drawer-items">
               <p>
-                Are You Sure?<button>Yes</button>
+                Are You Sure?<button onClick={this.props.deleteTuning}>Yes</button>
                 <button onClick={this.deletePreset}>No</button>
               </p>
             </div>
