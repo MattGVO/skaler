@@ -18,9 +18,6 @@ class Main extends Component {
     super(props);
 
     this.state = {
-      update: false,
-      delete: false,
-      save: false,
       user: null,
       tuningName: "",
       updateName: "",
@@ -79,8 +76,14 @@ class Main extends Component {
   }
 
   async updateDbTuning(){
+    let updateName = ''
+    if(this.state.updateName ===''){
+      updateName = this.state.tuningName
+    }else{
+      updateName = this.state.updateName
+    }
     let res = await axios.post(`${apiUrl}update-db-tuning`,{
-      updateName: this.state.updateName,
+      updateName: updateName,
       user: this.state.user,
       tuningName: this.state.tuningName,
     })

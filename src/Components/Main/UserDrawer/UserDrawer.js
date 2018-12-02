@@ -120,7 +120,7 @@ class UserDrawer extends Component {
                 defaultValue={this.props.tuningName}
                 onChange={this.props.handleChange}
               />
-              <button type="button" onClick={this.props.updateDbTuning}>Submit</button>
+              <button type="button" onClick={() => {this.props.updateDbTuning(); this.updatePreset();}}>Submit</button>
               <button type="button" onClick={this.updatePreset}>
                 Cancel
               </button>
@@ -130,7 +130,7 @@ class UserDrawer extends Component {
           {this.props.tuningName && !this.state.update && this.state.delete ? (
             <div className="drawer-items">
               <p>
-                Are You Sure?<button onClick={this.props.deleteTuning}>Yes</button>
+                Are You Sure?<button onClick={() => {this.props.deleteTuning(); this.deletePreset()}}>Yes</button>
                 <button onClick={this.deletePreset}>No</button>
               </p>
             </div>
@@ -143,7 +143,7 @@ class UserDrawer extends Component {
                 placeholder="Tuning Name"
                 onChange={this.props.handleChange}
               />
-              <button type="button" onClick={this.props.submitTuning}>
+              <button type="button" onClick={() => {this.props.submitTuning(); this.savePreset();}}>
                 Submit
               </button>
               <button type="button" onClick={this.savePreset}>
