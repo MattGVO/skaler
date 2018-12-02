@@ -120,7 +120,7 @@ class UserDrawer extends Component {
                 defaultValue={this.props.tuningName}
                 onChange={this.props.handleChange}
               />
-              <button type="button">Submit</button>
+              <button type="button" onClick={this.props.updateDbTuning}>Submit</button>
               <button type="button" onClick={this.updatePreset}>
                 Cancel
               </button>
