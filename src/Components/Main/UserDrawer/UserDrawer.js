@@ -20,6 +20,7 @@ class UserDrawer extends Component {
     this.updatePreset = this.updatePreset.bind(this);
     this.deletePreset = this.deletePreset.bind(this);
     this.savePreset = this.savePreset.bind(this);
+    this.getAllTunings = this.getAllTunings.bind(this);
   }
 
   async componentDidMount() {
@@ -83,7 +84,18 @@ class UserDrawer extends Component {
     }
   }
 
+  async getAllTunings() {
+    let res = await axios.post(`${apiUrl}get-all-tunings`, {
+      user: this.props.user
+    });
+    this.setState({
+      tunings: res.data
+    });
+
+  }
+
   render() {
+    console.log(this.state.tunings)
     return (
       <div
         style={!this.state.hidden ? { width: "0vw" } : {}}
@@ -120,7 +132,7 @@ class UserDrawer extends Component {
                 defaultValue={this.props.tuningName}
                 onChange={this.props.handleChange}
               />
-              <button type="button" onClick={() => {this.props.updateDbTuning(); this.updatePreset();}}>Submit</button>
+              <button type="button" onClick={() => {this.props.updateDbTuning(); this.updatePreset(); this.getAllTunings();}}>Submit</button>
               <button type="button" onClick={this.updatePreset}>
                 Cancel
               </button>
@@ -130,7 +142,7 @@ class UserDrawer extends Component {
           {this.props.tuningName && !this.state.update && this.state.delete ? (
             <div className="drawer-items">
               <p>
-                Are You Sure?<button onClick={() => {this.props.deleteTuning(); this.deletePreset()}}>Yes</button>
+                Are You Sure?<button onClick={() => {this.props.deleteTuning(); this.deletePreset();  this.getAllTunings();}}>Yes</button>
                 <button onClick={this.deletePreset}>No</button>
               </p>
             </div>
@@ -143,7 +155,7 @@ class UserDrawer extends Component {
                 placeholder="Tuning Name"
                 onChange={this.props.handleChange}
               />
-              <button type="button" onClick={() => {this.props.submitTuning(); this.savePreset();}}>
+              <button type="button" onClick={() => {this.props.submitTuning(); this.savePreset(); this.getAllTunings();}}>
                 Submit
               </button>
               <button type="button" onClick={this.savePreset}>

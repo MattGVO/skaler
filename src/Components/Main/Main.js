@@ -105,7 +105,6 @@ class Main extends Component {
   }
 
   render() {
-    console.log(this.state.updateName)
     return (
       <div>
         {!this.state.user ? (
