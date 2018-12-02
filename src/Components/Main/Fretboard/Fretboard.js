@@ -14,16 +14,8 @@ class Fretboard extends Component {
       stringArray: [],
       tuning: ["E", "A", "D", "G", "B", "E", "A", "A"]
     };
-    this.updateTuning = this.updateTuning.bind(this);
   }
 
-  updateTuning(index, note) {
-    var tuneArr = [...this.state.tuning];
-    tuneArr.splice(index, 1, note);
-    this.setState({
-      tuning: [...tuneArr]
-    });
-  }
 
   componentDidMount() {
     let difference = this.props.numOfStrings;
@@ -33,7 +25,7 @@ class Fretboard extends Component {
       stringArray.push(
         <String
           numOfFrets={this.state.numOfFrets}
-          updateTuning={this.updateTuning}
+          updateTuning={this.props.updateTuning}
           index={i}
           string={this.state.tuning[i]}
         />
@@ -59,7 +51,7 @@ class Fretboard extends Component {
         stringArray.push(
           <String
             numOfFrets={this.state.numOfFrets}
-            updateTuning={this.updateTuning}
+            updateTuning={this.props.updateTuning}
             index={i}
             string={this.state.tuning[i]}
           />
@@ -77,7 +69,7 @@ class Fretboard extends Component {
         stringArray.push(
           <String
             numOfFrets={this.state.numOfFrets}
-            updateTuning={this.updateTuning}
+            updateTuning={this.props.updateTuning}
             index={i}
             string={this.state.tuning[i]}
           />

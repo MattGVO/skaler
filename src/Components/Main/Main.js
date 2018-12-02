@@ -2,16 +2,16 @@ import React, { Component } from "react";
 import ScaleSelector from "./ScaleSelector/ScaleSelector";
 import FretBoard from "./Fretboard/Fretboard";
 import ScaleNotes from "./ScaleNotes/ScaleNotes";
-import UserDrawer from './UserDrawer/UserDrawer';
+import UserDrawer from "./UserDrawer/UserDrawer";
 import { connect } from "react-redux";
-import { updateUser } from '../../ducks/reducer';
-import { updateDuxTuning } from '../../ducks/reducer';
+import { updateUser } from "../../ducks/reducer";
+import { updateDuxTuning } from "../../ducks/reducer";
 import "./Main.css";
 import Home from "../Home/Home";
 import axios from "axios";
 
 const authUrl = "/auth/";
-const apiUrl = '/api/'
+const apiUrl = "/api/";
 
 class Main extends Component {
   constructor(props) {
@@ -19,66 +19,97 @@ class Main extends Component {
 
     this.state = {
       user: null,
-      tuningName: '',
+      tuningName: "",
+      updateName: "",
+      tuning: ["E", "A", "D", "G", "B", "E", "A", "A"]
     };
-    this.logOut = this.logOut.bind(this)
+    this.logOut = this.logOut.bind(this);
+    this.updateTuning = this.updateTuning.bind(this);
+    this.submitTuning = this.submitTuning.bind(this);
   }
 
-  async componentDidMount(){
+  updateTuning(index, note) {
+    var tuneArr = [...this.state.tuning];
+    tuneArr.splice(index, 1, note);
+    this.setState({
+      tuning: [...tuneArr]
+    });
+  }
+
+  async componentDidMount() {
     let res = await axios.get(`${authUrl}user-data`);
     if (res.data.useremail) {
       this.setState({
         user: res.data.useremail
       });
-      this.props.updateUser(res.data.useremail)
+      this.props.updateUser(res.data.useremail);
     }
   }
 
-  async componentDidUpdate(prevProps,prevState){
-    if (this.state.tuningName !== prevState.tuningName){
-
+  async componentDidUpdate(prevProps, prevState) {
+    if (this.state.tuningName !== prevState.tuningName) {
       let res = await axios.post(`${apiUrl}get-tuning`, {
         user: this.state.user,
         tuningName: this.state.tuningName
-      })
-      this.props.updateDuxTuning(res.data)
+      });
+      this.props.updateDuxTuning(res.data);
     }
   }
 
-  handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
+  async submitTuning() {
+    let res = await axios.post(`${apiUrl}save-tuning`,{
+      user: this.state.user,
+      tuningName: this.state.updateName,
+      tuning: this.state.tuning,
+    })
+    console.log(res.data)
+  }
 
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   async logOut() {
-    this.props.updateUser(null)
+    this.props.updateUser(null);
     let res = await axios.get(`${authUrl}logout`);
-    console.log(res.data)
+    console.log(res.data);
     this.setState({
       user: null
-    })
-    this.props.history.push('/')
-   }
+    });
+    this.props.history.push("/");
+  }
 
   render() {
+    console.log(this.state.updateName)
     return (
-      <div >
-        {!this.state.user ? 
-          <Home/>
-           : 
-            <div className="preset-layer">
-            <UserDrawer logOut={this.logOut} tuningName ={this.state.tuningName} handleChange={this.handleChange} className="preset-layer"/>
+      <div>
+        {!this.state.user ? (
+          <Home />
+        ) : (
+          <div className="preset-layer">
+            <UserDrawer
+              submitTuning={this.submitTuning}
+              tuning={this.state.tuning}
+              logOut={this.logOut}
+              tuningName={this.state.tuningName}
+              handleChange={this.handleChange}
+              className="preset-layer"
+            />
             <div className="main-container">
-            <div className="main-container-background">
-              <ScaleSelector />
-              <FretBoard />
-              <ScaleNotes />
-            </div>
-
+              <div className="main-container-background">
+                <ScaleSelector />
+                <FretBoard updateTuning={this.updateTuning} />
+                <ScaleNotes />
+              </div>
             </div>
           </div>
-        }
+        )}
       </div>
     );
   }
 }
 
-export default connect(null, {updateUser, updateDuxTuning} )(Main);
+export default connect(
+  null,
+  { updateUser, updateDuxTuning }
+)(Main);

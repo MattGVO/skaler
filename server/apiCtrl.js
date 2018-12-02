@@ -33,5 +33,15 @@ module.exports ={
         let { one,two,three,four,five,six,seven,eight } = foundTuning
         let tuning = [one,two,three,four,five,six,seven,eight]
         res.status(200).send(tuning)
-    }
+    },
+    async saveTuning(req,res){
+        let { user,tuningName,tuning } = req.body
+        let [ one,two,three,four,five,six,seven,eight ] = tuning
+        let db = req.app.get('db')
+        let [saveTuning] = await db.scales.save_tuning(
+            [user,
+             tuningName,
+             one, two, three, four, five, six, seven, eight])
+        res.sendStatus(200)
+    },
 }

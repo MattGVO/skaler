@@ -83,13 +83,7 @@ class UserDrawer extends Component {
     }
   }
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
   render() {
-    
-    
     return (
       <div
         style={!this.state.hidden ? { width: "0vw" } : {}}
@@ -124,7 +118,7 @@ class UserDrawer extends Component {
               <input
                 name="updateName"
                 defaultValue={this.props.tuningName}
-                onChange={this.handleChange}
+                onChange={this.props.handleChange}
               />
               <button type="button">Submit</button>
               <button type="button" onClick={this.updatePreset}>
@@ -146,10 +140,12 @@ class UserDrawer extends Component {
             <div className="drawer-items">
               <input
                 name="updateName"
-                defaultValue={this.props.tuningName}
-                onChange={this.handleChange}
+                placeholder="Tuning Name"
+                onChange={this.props.handleChange}
               />
-              <button type="button">Submit</button>
+              <button type="button" onClick={this.props.submitTuning}>
+                Submit
+              </button>
               <button type="button" onClick={this.savePreset}>
                 Cancel
               </button>

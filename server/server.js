@@ -49,6 +49,8 @@ app.post(`${apiUrl}get-all-tunings`, apiCtrl.getAllTunings)
 
 app.post(`${apiUrl}get-tuning`, apiCtrl.getTuning)
 
+app.post(`${apiUrl}save-tuning`, apiCtrl.saveTuning)
+
 
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, '../build/index.html'));
