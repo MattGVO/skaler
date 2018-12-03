@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import './UserDrawer.css'
 import { updateUser } from "../../../ducks/reducer";
 const authUrl = "/auth/";
 const apiUrl = "/api/";
