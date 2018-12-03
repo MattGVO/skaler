@@ -93,6 +93,7 @@ class UserDrawer extends Component {
   }
 
   render() {
+    console.log(this.state.tunings)
     return (
       <div
         style={!this.state.hidden ? { width: "0vw" } : {}}

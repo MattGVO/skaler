@@ -1,21 +1,16 @@
 /* @import url('https://fonts.googleapis.com/css?family=K2D'); */
-
 * {
   margin: 0;
   background-color: #222728;
   /* background-color: whitesmoke; */
-
   color: whitesmoke;
-  border-color: whitesmoke;
-  
-}
+  border-color: whitesmoke; }
 
 /* 
 * {
   margin: 0;
   background-color: rgb(220,220,220);
 } */
-
 header {
   position: relative;
   background-color: #224d3c;
@@ -28,15 +23,13 @@ header {
   width: 100vw;
   box-shadow: 0px 5px 5px #0000008c;
   font-family: 'Prompt', sans-serif;
-  z-index: 4;
-}
+  z-index: 4; }
 
-.header-items{
+.header-items {
   margin: 0px 50px;
-  background-color: #224d3c;
-}
+  background-color: #224d3c; }
 
-main{
+main {
   height: 90vh;
   display: flex;
   align-items: center;
@@ -44,63 +37,52 @@ main{
   flex-direction: column;
   width: 100vw;
   position: absolute;
-  background-color: whitesmoke;
-}
+  background-color: whitesmoke; }
 
 .logo {
   background-color: rgba(255, 255, 255, 0);
   height: 40px;
   margin-left: 240px;
-  position: absolute;
-}
+  position: absolute; }
 
-.login{
+.login {
   font-size: 40px;
   font-family: 'Prompt', sans-serif;
   text-decoration: none;
   color: whitesmoke;
   background: none;
   border: none;
-  margin: 0px;
-}
+  margin: 0px; }
 
-.logo-button{
+.logo-button {
   font-size: 40px;
   font-family: 'Prompt', sans-serif;
   text-decoration: none;
   color: whitesmoke;
   background: none;
-  border: none;
-}
+  border: none; }
 
-.logout-button{
+.logout-button {
   display: flex;
   justify-content: center;
-  align-items: center;
-  
-}
+  align-items: center; }
 
-input{
+input {
   background: whitesmoke;
-  color: black;
-}
-button{
+  color: black; }
+
+button {
   background: whitesmoke;
-  color: black;
-}
+  color: black; }
 
 button:focus {
-  outline:0;
-}
+  outline: 0; }
 
-@media (max-width: 425px){
-  header{
-    justify-content: center;
-  }
-  .logo{
-    display: none;
-}
+@media (max-width: 425px) {
+  header {
+    justify-content: center; }
+  .logo {
+    display: none; } }
 
-}
 /* #3A214A dark purple
 #4A3A21 dark brown */
