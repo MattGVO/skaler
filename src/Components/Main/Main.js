@@ -105,6 +105,7 @@ class Main extends Component {
   }
 
   render() {
+    console.log(this.state.tuningName)
     return (
       <div>
         {!this.state.user ? (

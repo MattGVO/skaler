@@ -15,7 +15,7 @@ class UserDrawer extends Component {
       delete: false,
       save: false,
       updateName: this.props.tuningName,
-      tunings: [],
+      tunings: []
     };
     this.updatePreset = this.updatePreset.bind(this);
     this.deletePreset = this.deletePreset.bind(this);
@@ -30,7 +30,6 @@ class UserDrawer extends Component {
       user = res.data.useremail;
     } else {
       user = await this.props.user;
-      console.log("user", user);
     }
     let res = await axios.post(`${apiUrl}get-all-tunings`, {
       user
@@ -91,20 +90,22 @@ class UserDrawer extends Component {
     this.setState({
       tunings: res.data
     });
-
   }
 
   render() {
-    console.log(this.state.tunings)
     return (
       <div
         style={!this.state.hidden ? { width: "0vw" } : {}}
-        className="preset-drawer"
+        className="menu-drawer"
       >
-        <div className="drawer-items">
+        <div className="drawer-items preset-drawer">
           <h1 className="drawer-items">presets</h1>
-          {!this.state.update ? (
-            <select name="tuningName" onChange={this.props.handleChange}>
+          {!this.state.update && !this.state.save ? (
+            <select
+              value={this.props.tuningName}
+              name="tuningName"
+              onChange={this.props.handleChange}
+            >
               <option value="" hidden>
                 Choose Tuning
               </option>
@@ -118,8 +119,11 @@ class UserDrawer extends Component {
             </select>
           ) : null}
 
-          {this.props.tuningName && !this.state.update && !this.state.delete ? (
-            <div className="drawer-items">
+          {this.props.tuningName &&
+          !this.state.update &&
+          !this.state.delete &&
+          !this.state.save ? (
+            <div className="drawer-items update-buttons">
               <button onClick={this.updatePreset}>Update</button>
               <button onClick={this.deletePreset}>Delete</button>
             </div>
@@ -128,21 +132,42 @@ class UserDrawer extends Component {
           {this.props.tuningName && this.state.update ? (
             <div className="drawer-items">
               <input
+                className="preset-input"
                 name="updateName"
                 defaultValue={this.props.tuningName}
                 onChange={this.props.handleChange}
               />
-              <button type="button" onClick={() => {this.props.updateDbTuning(); this.updatePreset(); this.getAllTunings();}}>Submit</button>
-              <button type="button" onClick={this.updatePreset}>
-                Cancel
-              </button>
+              <div className="drawer-items update-buttons">
+                <button
+                  type="button"
+                  onClick={() => {
+                    this.props.updateDbTuning();
+                    this.updatePreset();
+                    this.getAllTunings();
+                  }}
+                >
+                  Submit
+                </button>
+                <button type="button" onClick={this.updatePreset}>
+                  Cancel
+                </button>
+              </div>
             </div>
           ) : null}
 
           {this.props.tuningName && !this.state.update && this.state.delete ? (
-            <div className="drawer-items">
+            <div className="drawer-items update-buttons">
               <p>
-                Are You Sure?<button onClick={() => {this.props.deleteTuning(); this.deletePreset();  this.getAllTunings();}}>Yes</button>
+                Are You Sure?
+                <button
+                  onClick={() => {
+                    this.props.deleteTuning();
+                    this.deletePreset();
+                    this.getAllTunings();
+                  }}
+                >
+                  Yes
+                </button>
                 <button onClick={this.deletePreset}>No</button>
               </p>
             </div>
@@ -151,22 +176,32 @@ class UserDrawer extends Component {
           {this.state.save ? (
             <div className="drawer-items">
               <input
+                className="preset-input"
                 name="updateName"
                 placeholder="Tuning Name"
                 onChange={this.props.handleChange}
               />
-              <button type="button" onClick={() => {this.props.submitTuning(); this.savePreset(); this.getAllTunings();}}>
+              <div className="drawer-items update-buttons">
+              <button
+                type="button"
+                onClick={() => {
+                  this.props.submitTuning();
+                  this.savePreset();
+                  this.getAllTunings();
+                }}
+              >
                 Submit
               </button>
               <button type="button" onClick={this.savePreset}>
                 Cancel
               </button>
+              </div>
             </div>
           ) : (
             <button onClick={this.savePreset}>Save Tuning</button>
           )}
         </div>
-        <div className="header-items">
+        <div className="header-items logout-button">
           <button className="login" onClick={this.props.logOut}>
             logout
           </button>

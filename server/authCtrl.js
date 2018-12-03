@@ -5,7 +5,6 @@ const { HOME_PATH } = process.env;
 
 module.exports = {
     async signup(req,res) {
-        console.log(req.body)
         let {email, password} = req.body
         let db = req.app.get('db');
         let [foundUser] = await db.user.find_user([email])
@@ -43,7 +42,6 @@ module.exports = {
         req.session.destroy();
         res.status(200).send('Thank for to come to my site!')
         res.redirect(HOME_PATH)
-        console.log(req.session.user)
     },
     
 }

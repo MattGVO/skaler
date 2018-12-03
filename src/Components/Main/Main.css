@@ -11,8 +11,8 @@
 
 .main-container-background {
   background-color: #224d3c;
-  width: 1050px;
-  height: 650px;
+  width: 1020px;
+  height: 580px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,7 +30,7 @@
 
 .ScaleSelector {
   width: 1000px;
-  height: 100px;
+  height: 80px;
   border-style: solid;
   border-color: rgb(0, 0, 0);
   border-color: whitesmoke;
@@ -109,7 +109,7 @@
 
 .ScaleNotes {
   width: 1000px;
-  height: 100px;
+  height: 80px;
   border-style: solid;
   border-color: rgb(0, 0, 0);
   border-color: whitesmoke;
@@ -127,7 +127,7 @@ span {
   border-style: solid;
   border-top-style: none;
   border-bottom-style: none;
-  border-color: rgb(0, 0, 0);
+  /* border-color: rgb(0, 0, 0); */
   border-color: whitesmoke;
   border-width: thin;
 }
@@ -138,6 +138,10 @@ span {
   margin-left: 15px;
   display: flex;
   align-items: center;
+}
+
+.fret-selector{
+  margin-left: 15px;
 }
 
 .key-dot {
@@ -158,20 +162,27 @@ select {
   height: 35px;
 }
 
-.preset-drawer {
+.menu-drawer {
   background: #224d3c;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
   right: 0px;
-  top: 10vh;
   background: #224d3c;
   width: 20vw;
-  height: 90vh;
+  height: 100%;
   z-index: 1;
   transition: width 200ms;
   overflow: hidden;
+  box-shadow: 0px 0px 25px 0px #0000008c;
+}
+
+.preset-drawer{
+  display: flex;
+  flex-direction: column;
+  justify-items:  center;
+  color: whitesmoke;
 }
 
 .fade-in {
@@ -189,6 +200,16 @@ select {
   position: absolute;
   margin-top: 50px;
   
+}
+
+.preset-input{
+  width:100%;
+}
+
+.update-buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes fadeInOpacity {

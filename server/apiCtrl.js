@@ -52,7 +52,6 @@ module.exports ={
     },
     async updateDbTuning(req,res){
         let { updateName,user,tuningName } = req.body
-        console.log(req.body)
         let db = req.app.get('db')
         let [updateDbTuning] = await db.scales.update_db_tuning([updateName,user,tuningName])
         res.sendStatus(200)

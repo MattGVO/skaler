@@ -29,19 +29,16 @@ main{
   
   .login-image {
     height: 100%;
-    margin-left: 20px;
     position: absolute;
     z-index: -2;
-    opacity: .70;
-    background: black;
-    filter: grayscale(100%);
-    filter: blur(100%);
+    overflow: hidden;
   }
   
   .container {
     background: #224d3c;
-    width: 500px;
-    height: 400px;
+    filter: grayscale(0%);
+    width: 31.250em;
+    height: 25em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,12 +61,32 @@ main{
     margin-top: 0px;
   }
 
-@media (max-width: 1250px){
+@media (max-width: 72.313em){
   main{
     overflow: hidden;
+    background-image: url('../../skalerbackground.jpg');
+    background-repeat: no-repeat;
+    background-size: cover
   }
   .login-image{
-    width: 1157px;
+    display: none;
   }
+}
+
+.login-buttons{
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  background: #224d3c;
+
+}
+
+button{
+  margin: 10px;
+  background: rgb(213, 233, 213);
+  border-color: #a9c7df;
+  border-radius: 5px;
+  
+  
 }
   

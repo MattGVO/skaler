@@ -64,8 +64,10 @@ class Login extends Component {
               PASSWORD :  
             </p>
             <input type="password" name="password" onChange={this.handleChange}></input>
+            <div className="login-buttons">
             <button type ='button' onClick={()=>{this.login()}}>Login</button>
             <button type = 'button' onClick={()=>{this.signup()}}>Signup</button>
+            </div>
           </form>
           <img
             className="login-image"

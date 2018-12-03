@@ -91,8 +91,9 @@ class Fretboard extends Component {
         <div className="fretboard-key">
           <span> Root Note: </span>
           <span className="key-dot" />
-          <span># of Frets</span>
+          <span className="fret-selector"># of Frets</span>
           <NumOfFrets
+            
             numOfFrets={this.state.numOfFrets}
             handleChange={this.handleChange}
           />

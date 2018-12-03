@@ -3,6 +3,8 @@
 * {
   margin: 0;
   background-color: #222728;
+  /* background-color: whitesmoke; */
+
   color: whitesmoke;
   border-color: whitesmoke;
   
@@ -59,6 +61,7 @@ main{
   color: whitesmoke;
   background: none;
   border: none;
+  margin: 0px;
 }
 
 .logo-button{
@@ -68,6 +71,12 @@ main{
   color: whitesmoke;
   background: none;
   border: none;
+}
+
+.logout-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input{

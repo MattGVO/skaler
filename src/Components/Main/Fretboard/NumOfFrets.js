@@ -5,7 +5,7 @@ class NumOfFrets extends Component {
 
   render() {
     return (
-      <div>
+      <div className="fret-selector">
         <select 
         name="numOfFrets" 
         onChange={this.props.handleChange} 
