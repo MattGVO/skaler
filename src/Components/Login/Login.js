@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../Home/Home.css";
-import './Login.css';
 import skalerbackground from "../../skalerbackground.jpg";
 import axios from 'axios';
 const authUrl = '/auth/'
