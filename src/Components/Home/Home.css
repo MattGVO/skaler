@@ -100,6 +100,10 @@ main{
 
 }
 
+.login-buttons{
+  background: rgba(0, 0, 0, 0);
+}
+
 button{
   margin: 10px;
   background: rgb(213, 233, 213);
