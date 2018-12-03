@@ -11,10 +11,10 @@ class Home extends Component {
         <div>
           <main>
           <div className="container">
-          <h1 className="Login Logo">SKALER</h1>
-          <img className="Login Logo logo-image" src={logo} alt="logo"/>
-          <h1 className="Login" >Music for the visual learner</h1>
-          <Link className="header-items login-button-mobile" to="/login">
+          <h1 className="login main-logo">SKALER</h1>
+          <img className="login main-logo logo-image" src={logo} alt="logo"/>
+          <h1 className="tag-line" >Music for the visual learner</h1>
+          <Link className="login-button-mobile" to="/login">
           <button  className="login">login</button>
         </Link>
           </div>

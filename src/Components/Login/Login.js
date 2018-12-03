@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../Home/Home.css";
+import './Login.css';
 import skalerbackground from "../../skalerbackground.jpg";
 import axios from 'axios';
 const authUrl = '/auth/'
@@ -55,7 +56,7 @@ class Login extends Component {
         <div>
           <main>
           <form className="container" >
-            <h1 className="Login Logo">SKALER</h1>
+            <h1 className="login main-logo">SKALER</h1>
             <p>
               EMAIL :  
             </p>

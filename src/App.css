@@ -4,7 +4,8 @@
   background-color: #222728;
   /* background-color: whitesmoke; */
   color: whitesmoke;
-  border-color: whitesmoke; }
+  border-color: whitesmoke;
+}
 
 /* 
 * {
@@ -22,67 +23,63 @@ header {
   color: whitesmoke;
   width: 100vw;
   box-shadow: 0px 5px 5px #0000008c;
-  font-family: 'Prompt', sans-serif;
-  z-index: 4; }
+  font-family: "Prompt", sans-serif;
+  z-index: 4;
+}
 
 .header-items {
-  margin: 0px 50px;
-  background-color: #224d3c; }
+  background-color: #00000000;
+}
 
-main {
-  height: 90vh;
+.logo-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 100vw;
-  position: absolute;
-  background-color: whitesmoke; }
+}
 
 .logo {
   background-color: rgba(255, 255, 255, 0);
   height: 40px;
-  margin-left: 240px;
-  position: absolute; }
+}
 
 .login {
   font-size: 40px;
-  font-family: 'Prompt', sans-serif;
+  font-family: "Prompt", sans-serif;
   text-decoration: none;
   color: whitesmoke;
   background: none;
   border: none;
-  margin: 0px; }
+  margin: 0px;
+}
 
 .logo-button {
   font-size: 40px;
-  font-family: 'Prompt', sans-serif;
+  font-family: "Prompt", sans-serif;
   text-decoration: none;
   color: whitesmoke;
   background: none;
-  border: none; }
-
-.logout-button {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+  border: none;
+}
 
 input {
   background: whitesmoke;
-  color: black; }
+  color: black;
+}
 
 button {
   background: whitesmoke;
-  color: black; }
+  color: black;
+}
 
-button:focus {
-  outline: 0; }
+
 
 @media (max-width: 425px) {
   header {
-    justify-content: center; }
+    justify-content: center;
+  }
   .logo {
-    display: none; } }
+    display: none;
+  }
+}
 
 /* #3A214A dark purple
 #4A3A21 dark brown */

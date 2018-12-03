@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import './UserDrawer.css'
 import { updateUser } from "../../../ducks/reducer";
 const authUrl = "/auth/";
 const apiUrl = "/api/";
@@ -202,7 +203,7 @@ class UserDrawer extends Component {
             <button onClick={this.savePreset}>Save Tuning</button>
           )}
         </div>
-        <div className="header-items logout-button">
+        <div className="drawer-items">
           <button className="login" onClick={this.props.logOut}>
             logout
           </button>

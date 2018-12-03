@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=K2D|Prompt');
 
+*{
+  font-family: 'Prompt', sans-serif;
+}
 body {
   margin: 0;
   padding: 0;
@@ -15,10 +18,14 @@ code {
     monospace;
 }
 
-/* select {
-  max-width: 90%;
-} */
-
-h1, h2, h3,{
-  background: #224d3c;
+button{
+  margin: 10px;
+  background: rgb(213, 233, 213);
+  border-color: #a9c7df;
+  border-radius: 5px;  
 }
+
+button:focus {
+  outline: 0;
+}
+

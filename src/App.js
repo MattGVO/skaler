@@ -40,9 +40,11 @@ class App extends Component {
             className="logo-button"
             onClick={() => this.props.history.push("/")}
           >
-            <h3 className="header-items">SKALER</h3>
+          <div className="header-items logo-container">
+            <h3 className="header-items logo-button">SKALER</h3>
+            <img className="logo" src={logo} alt="logo" />
+          </div>
           </button>
-          <img className="logo header-items" src={logo} alt="logo" />
           {this.props.location.pathname === "/main" && this.props.user ? (
             <div className="header-items">
               <button onClick={this.openCloseDrawer} className="logo-button">menu</button>
