@@ -47,7 +47,7 @@ class App extends Component {
             <div className="header-items">
               <button onClick={this.openCloseDrawer} className="logo-button">menu</button>
             </div>
-          ) : <Link className="header-items" to="/login">
+          ) : <Link className="header-items login-button" to="/login">
           <button  className="login">login</button>
         </Link>}
         </header>

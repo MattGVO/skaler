@@ -92,5 +92,14 @@ button:focus {
   outline:0;
 }
 
+@media (max-width: 425px){
+  header{
+    justify-content: center;
+  }
+  .logo{
+    display: none;
+}
+
+}
 /* #3A214A dark purple
 #4A3A21 dark brown */

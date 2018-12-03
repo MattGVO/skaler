@@ -15,6 +15,9 @@ code {
     monospace;
 }
 
+/* select {
+  max-width: 90%;
+} */
 
 h1, h2, h3,{
   background: #224d3c;
