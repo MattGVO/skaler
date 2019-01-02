@@ -45,13 +45,15 @@ module.exports ={
         res.sendStatus(200)
     },
     async deleteTuning(req,res){
-        let { user,tuningName } = req.body
+        let user = req.session.user.useremail
+        let { id } = req.params
         let db = req.app.get('db')
-        let [deleteTuning] = await db.scales.delete_tuning([user,tuningName])
+        let [deleteTuning] = await db.scales.delete_tuning([user,id])
         res.sendStatus(200)
     },
     async updateDbTuning(req,res){
-        let { updateName,user,tuningName } = req.body
+        let {user} = req.params
+        let { updateName,tuningName } = req.body
         let db = req.app.get('db')
         let [updateDbTuning] = await db.scales.update_db_tuning([updateName,user,tuningName])
         res.sendStatus(200)
