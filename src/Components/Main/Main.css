@@ -214,7 +214,7 @@ select {
   animation-name: fadeInOpacity;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
-  animation-duration: 300ms;
+  animation-duration: 600ms;
 }
 .drawer-items {
   background: #224d3c;

@@ -15,7 +15,7 @@ class Home extends Component {
         <main>
           <div className={this.props.location.pathname === "/login"? "login-container": "container"}>
             {this.props.location.pathname === "/" ? (
-              <div className="home-container">
+              <div className="home-container fade-in">
                 <h1 className="main-logo">SKALER</h1>
                 <img
                   className="main-logo"
