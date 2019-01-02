@@ -47,7 +47,7 @@ class App extends Component {
           </button>
           {this.props.location.pathname === "/main" && this.props.user ? (
             <div className="header-items">
-              <button onClick={this.openCloseDrawer} className="logo-button">menu</button>
+              <h1 onClick={this.openCloseDrawer} className="logo-button">menu</h1>
             </div>
           ) : <Link className="header-items login-button" to="/login">
           <button  className="login">login</button>

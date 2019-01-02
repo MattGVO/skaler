@@ -1,17 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css?family=K2D'); */
-* {
-  margin: 0;
-  background-color: #222728;
-  /* background-color: whitesmoke; */
-  color: whitesmoke;
-  border-color: whitesmoke;
-}
 
-/* 
-* {
-  margin: 0;
-  background-color: rgb(220,220,220);
-} */
+
 header {
   position: relative;
   background-color: #224d3c;

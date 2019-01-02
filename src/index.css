@@ -2,7 +2,13 @@
 
 *{
   font-family: 'Prompt', sans-serif;
+  margin: 0;
 }
+
+p, h1, h2, h3, h4, h5, h6{
+  color: whitesmoke;
+}
+
 body {
   margin: 0;
   padding: 0;

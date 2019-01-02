@@ -39,8 +39,10 @@ main{
     flex-direction: column;
     box-shadow: 0px 5px 5px #0000008c;
     border-radius: 15px;
+    transition: width 300ms, height 300ms;
   }
 
+  
   .login {
     color: whitesmoke;
     background: rgba(0, 0, 0, 0);

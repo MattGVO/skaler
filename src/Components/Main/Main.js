@@ -68,23 +68,24 @@ class Main extends Component {
   }
 
   async deleteTuning(){
-    let res = await axios.post(`${apiUrl}delete-tuning`,{
-      user: this.state.user,
-      tuningName: this.state.tuningName,
+    // var user = this.state.user
+    var tuningName = this.state.tuningName
+    let res = await  axios.delete(`${apiUrl}delete-tuning/${tuningName}`,{
+      data: tuningName,
     })
     console.log(res.data)
   }
 
   async updateDbTuning(){
     let updateName = ''
+    var user = this.state.user
     if(this.state.updateName ===''){
       updateName = this.state.tuningName
     }else{
       updateName = this.state.updateName
     }
-    let res = await axios.post(`${apiUrl}update-db-tuning`,{
+    let res = await axios.put(`${apiUrl}update-db-tuning/${user}`,{
       updateName: updateName,
-      user: this.state.user,
       tuningName: this.state.tuningName,
     })
     console.log(res.data)

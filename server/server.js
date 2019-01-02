@@ -21,13 +21,6 @@ app.use(session({
     saveUninitialized: false,
 }))
 
-var sessionObj={
-    rootNote: 'A',
-    scaleName: 'Major/Aelian',
-    numOfStrings: 6,
-    tuningName: '',
-}
-
 const apiUrl = '/api/'
 const authUrl = '/auth/'
 
@@ -51,10 +44,9 @@ app.post(`${apiUrl}get-tuning`, apiCtrl.getTuning)
 
 app.post(`${apiUrl}save-tuning`, apiCtrl.saveTuning)
 
-app.post(`${apiUrl}delete-tuning`, apiCtrl.deleteTuning)
+app.delete(`${apiUrl}delete-tuning/:id`, apiCtrl.deleteTuning)
 
-app.post(`${apiUrl}update-db-tuning`, apiCtrl.updateDbTuning)
-
+app.put(`${apiUrl}update-db-tuning/:user`, apiCtrl.updateDbTuning)
 
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, '../build/index.html'));
