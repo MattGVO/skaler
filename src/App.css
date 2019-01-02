@@ -1,10 +1,7 @@
-/* @import url('https://fonts.googleapis.com/css?family=K2D'); */
-
-
 header {
   position: relative;
   background-color: #224d3c;
-  min-height: 10vh;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,21 +9,41 @@ header {
   color: whitesmoke;
   width: 100vw;
   box-shadow: 0px 5px 5px #0000008c;
-  font-family: "Prompt", sans-serif;
-  z-index: 4;
+  font-size: 40px;
+  z-index: 1;
 }
 
 .header-items {
-  background-color: #00000000;
+  margin: 0px 10px 0px 10px;
 }
 
-.logo-container {
+.logo-container{
   display: flex;
   align-items: center;
 }
 
+.title {
+  color: whitesmoke;
+  background: none;
+  border: none;
+}
+
+
+
+a:hover{
+  font-size: 42px;
+}
+
+a{
+  color: whitesmoke;
+  text-decoration: none;
+}
+a:visited{
+  text-decoration: none;
+}
+
+
 .logo {
-  background-color: rgba(255, 255, 255, 0);
   height: 40px;
 }
 
@@ -40,35 +57,10 @@ header {
   margin: 0px;
 }
 
-.logo-button {
-  font-size: 40px;
-  font-family: "Prompt", sans-serif;
-  text-decoration: none;
-  color: whitesmoke;
-  background: none;
-  border: none;
-}
-
-input {
-  background: whitesmoke;
-  color: black;
-}
-
-button {
-  background: whitesmoke;
-  color: black;
-}
 
 
 
-@media (max-width: 425px) {
-  header {
-    justify-content: center;
-  }
-  .logo {
-    display: none;
-  }
-}
 
-/* #3A214A dark purple
-#4A3A21 dark brown */
+
+
+

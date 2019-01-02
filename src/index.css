@@ -1,11 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=K2D|Prompt');
+@import url("https://fonts.googleapis.com/css?family=K2D|Prompt");
 
-*{
-  font-family: 'Prompt', sans-serif;
+* {
+  font-family: "Prompt", sans-serif;
   margin: 0;
 }
 
-p, h1, h2, h3, h4, h5, h6{
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: whitesmoke;
 }
 
@@ -24,14 +30,36 @@ code {
     monospace;
 }
 
-button{
+button {
   margin: 10px;
-  background: rgb(213, 233, 213);
-  border-color: #a9c7df;
-  border-radius: 5px;  
+  background: none;
+  border-color: whitesmoke;
+  border-style: solid;
+  border-radius: 5px;
+  color: whitesmoke;
+  width: 100px;
+  height: 35px;
+  transition: color 100ms, background 100ms;
+}
+
+button:hover{
+  background: whitesmoke;
+  color: #224D3C;
+}
+
+button:active{
+  background: rgb(150, 150, 150);
+  border: none;
+  color: #224D3C;
+  /* box-shadow: inset 1px 1px 35px #1d1d1d; */
 }
 
 button:focus {
   outline: 0;
 }
 
+input {
+  background: whitesmoke;
+  color: black;
+  width: 100%;
+}

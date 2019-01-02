@@ -9,16 +9,16 @@ import Register from "../Register/Register";
 
 class Home extends Component {
   render() {
-    console.log(this.props.location.pathname);
+    console.log(this.props.history)
     return (
       <div>
         <main>
-          <div className={this.props.location.pathname === "/login"? "container test": "container"}>
+          <div className={this.props.location.pathname === "/login"? "login-container": "container"}>
             {this.props.location.pathname === "/" ? (
               <div className="home-container">
-                <h1 className="login main-logo">SKALER</h1>
+                <h1 className="main-logo">SKALER</h1>
                 <img
-                  className="login main-logo logo-image"
+                  className="main-logo"
                   src={logo}
                   alt="logo"
                 />
@@ -31,7 +31,7 @@ class Home extends Component {
               </div>
             ) : null}
             {this.props.location.pathname === "/login" ? (
-              <div>
+              <div className="form">
                 <Login/>
               </div>
             ) : null}
