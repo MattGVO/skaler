@@ -4,7 +4,7 @@ import "./About.css";
 class About extends Component {
   render() {
     return (
-      <div>
+      <div className="about-container">
         <h1>Welcome to SKALER!</h1>
         <hr />
         <h3>It's time to learn music without learning music</h3>

@@ -36,21 +36,20 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <button
+          <Link to="/"
             className="logo-button"
-            onClick={() => this.props.history.push("/")}
           >
           <div className="header-items logo-container">
-            <h3 className="header-items logo-button">SKALER</h3>
+            <h3 className="header-items title">SKALER</h3>
             <img className="logo" src={logo} alt="logo" />
           </div>
-          </button>
+          </Link>
           {this.props.location.pathname === "/main" && this.props.user ? (
             <div className="header-items">
               <h1 onClick={this.openCloseDrawer} className="logo-button">menu</h1>
             </div>
           ) : <Link className="header-items login-button" to="/login">
-          <button  className="login">login</button>
+          login
         </Link>}
         </header>
         

@@ -11,6 +11,7 @@ class Login extends Component {
     this.state={
       email: '',
       password: '',
+      error:'',
     }
   }
 
@@ -19,7 +20,7 @@ class Login extends Component {
   handleChange = e => {this.setState({ [e.target.name]: e.target.value });}
 
   async login() {
-    if (!this.state.email || !this.state.password) return alert('Please fill out email AND password')
+    if (!this.state.email || !this.state.password) this.setState({error:'Please fill out email AND password'})
     let res = await axios.post(`${authUrl}login`, {
       email: this.state.email,
       password: this.state.password,
@@ -34,7 +35,7 @@ class Login extends Component {
   }  
 
   async signup() {
-    if (!this.state.email || !this.state.password) return alert('Please fill out Email AND Password')
+    if (!this.state.email || !this.state.password) return alert(`Please fill out Email AND Password!`)
     let res = await axios.post(`${authUrl}signup`, {
         email: this.state.email,
         password: this.state.password
@@ -52,9 +53,8 @@ class Login extends Component {
     render() {
       
       return (
-        <div>
-          <form >
-            <h1 className="login main-logo">SKALER</h1>
+          <div>
+            <h1 className="main-logo">SKALER</h1>
             <p>
               EMAIL :  
             </p>
@@ -64,12 +64,12 @@ class Login extends Component {
             </p>
             <input type="password" name="password" onChange={this.handleChange}></input>
             <div className="login-buttons">
-            <button type ='button' onClick={()=>{this.login()}}>Login</button>
-            <button type = 'button' onClick={()=>{this.signup()}}>Signup</button>
+            <button >About</button>
+            <button onClick={()=>{this.signup()}}>Signup</button>
+            <button onClick={()=>{this.login()}}>Login</button>
             </div>
-          </form>
-        </div>
-  
+            {this.state.error? <p style={{color: "rgb(200,50,50)",textAlign: "center"}}>{this.state.error}!</p>:null}
+          </div>
       );
     }
   }
