@@ -11,5 +11,6 @@ export default(
     <Route  path="/register" component={Home}/>
     <Route  path="/tutorial" component={Home}/>
     <Route  path="/main" component={Main}/>
+    <Route render={() => <div>Oops! That's not a valid route.</div>} />
   </Switch>
 )

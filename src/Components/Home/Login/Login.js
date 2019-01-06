@@ -1,0 +1,46 @@
+import React, { Component } from "react";
+import "./Login.css";
+// import { Link } from "react-router-dom";
+// import axios from "axios";
+// const authUrl = "/auth/";
+
+class Login extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      error: ""
+    }
+    
+  }
+  render() {
+    return (
+      <div className="form">
+          <h1 className="home-title">SKALER</h1>
+        <p>EMAIL :</p>
+        <input type="email" name="email" onChange={this.handleChange} />
+        <p>PASSWORD :</p>
+        <input type="password" name="password" onChange={this.handleChange} />
+        <div className="home-buttons">
+          <button>About</button>
+          <button>Signup</button>
+          <button>Login</button>
+        </div>
+        {this.state.error ? (
+            <p
+              style={{
+                color: "orange",
+                textAlign: "center",
+                fontSize: "16px",
+              }}
+            >
+              *{this.state.error}!
+            </p>
+          ) : (
+            <p style={{ visibility: "hidden", fontSize: "16px" }}>.</p>
+          )}
+      </div>
+    );
+  }
+}
+
+export default Login;

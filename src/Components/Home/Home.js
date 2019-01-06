@@ -1,51 +1,35 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import "./Home.css";
-import skalerbackground from "../../skalerbackground.jpg";
 import logo from "../../skaler.svg";
-import About from "../About/About";
-import Login from "../Login/Login";
-import Register from "../Register/Register";
+import About from "./About/About";
+import Login from "./Login/Login";
 
 class Home extends Component {
   render() {
-    console.log(this.props.history)
+    console.log(this.props.history);
     return (
       <div>
         <main>
-          <div className={this.props.location.pathname === "/login"? "login-container": "container"}>
+          <div style={this.props.location.pathname === "/about"?  {height: "90%", width: "75%"}: null} className={this.props.location.pathname !== "/login"? "container" : "login-container"}>
             {this.props.location.pathname === "/" ? (
-              <div className="home-container fade-in">
-                <h1 className="main-logo">SKALER</h1>
-                <img
-                  className="main-logo"
-                  src={logo}
-                  alt="logo"
-                />
-                <h1 className="tag-line">Music for the visual learner</h1>
+              <div className="home-container">
+                <h1 className="home-title">SKALER</h1>
+                <img className="home-logo" src={logo} alt="logo" />
+                <h2>Music for the visual learner</h2>
+                <div className="home-buttons">
+                  <button>About</button>
+                  <button onClick={() => this.props.history.push("/login")}>Signup/Login</button>
+                </div>
               </div>
             ) : null}
             {this.props.location.pathname === "/about" ? (
-              <div className="about-container">
                 <About />
-              </div>
             ) : null}
             {this.props.location.pathname === "/login" ? (
-              <div className="form">
-                <Login/>
-              </div>
-            ) : null}
-            {this.props.location.pathname === "/register" ? (
-              <div>
-                <Register/>
-              </div>
+                <Login history={this.props.history} />
             ) : null}
           </div>
-          <img
-            className="login-image"
-            src={skalerbackground}
-            alt="login background"
-          />
         </main>
       </div>
     );

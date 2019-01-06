@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 import { updateUser } from "../../ducks/reducer";
 import { updateDuxTuning } from "../../ducks/reducer";
 import "./Main.css";
-import Home from "../Home/Home";
 import axios from "axios";
 
 const authUrl = "/auth/";
@@ -108,9 +107,6 @@ class Main extends Component {
   render() {
     return (
       <div>
-        {!this.state.user ? (
-          <Home />
-        ) : (
           <div className="preset-layer">
             <UserDrawer
               updateDbTuning={this.updateDbTuning}
@@ -130,7 +126,6 @@ class Main extends Component {
               </div>
             </div>
           </div>
-        )}
       </div>
     );
   }
