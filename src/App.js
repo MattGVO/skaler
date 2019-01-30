@@ -1,55 +1,52 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./App.scss";
 import Routes from "./Routes";
 import logo from "./skaler.svg";
+import UserDrawer from "./Components/UserDrawer/UserDrawer";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { updateUser, drawerDisplay } from "./ducks/reducer";
+import { updateUser } from "./ducks/reducer";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      drawerDisplay: false
+      user: this.props.user,
+      drawerDisplay: false,
     };
     this.openCloseDrawer = this.openCloseDrawer.bind(this);
   }
 
+
   openCloseDrawer() {
-    if (this.state.drawerDisplay) {
-      this.props.drawerDisplay(false);
-      this.setState({
-        drawerDisplay: false
-      });
-    } else {
-      this.props.drawerDisplay(true);
-      this.setState({
-        drawerDisplay: true
-      });
-    }
+    this.setState({
+      drawerDisplay: !this.state.drawerDisplay
+    })
   }
 
   render() {
+    console.log('state user',this.state.user);
     return (
       <div className="App">
         <header>
-          <Link to="/" className="logo-button">
+          <Link to="/about" className="logo-button">
             <div className="header-items logo-container">
               <h3 className="header-items title">SKALER</h3>
               <img className="logo" src={logo} alt="logo" />
             </div>
           </Link>
-          {this.props.location.pathname === "/main" ? (
-            <div className="header-items">
-              <h1 onClick={this.openCloseDrawer} className="logo-button">
-                menu
-              </h1>
-            </div>
-          ) : null}
+          <h3 onClick={this.openCloseDrawer} className="logo-button title">
+            menu
+          </h3>
         </header>
-
-        {Routes}
+        <main>
+          <UserDrawer
+            drawerDisplay={this.state.drawerDisplay}
+            history={this.props.history}
+          />
+          {Routes}
+        </main>
       </div>
     );
   }
@@ -62,6 +59,6 @@ function mapStateToProps(state) {
 export default withRouter(
   connect(
     mapStateToProps,
-    { updateUser, drawerDisplay }
+    { updateUser }
   )(App)
 );

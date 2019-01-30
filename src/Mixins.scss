@@ -1,23 +1,20 @@
-@import './Vars.scss';
+@import "./Vars.scss";
 
-@mixin column-flex{
-    display: flex;
-    flex-direction: column;
+@mixin column-flex {
+  display: flex;
+  flex-direction: column;
 }
 
-@mixin home-container{
-    background: $green;
-    width: 450px;
-    height: 350px;
-    box-shadow: 0px 5px 5px #0000008c;
-    border-radius: 15px;
-    border-radius: 15px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    transition: width 300ms, height 300ms, transform 0.6s;
-    transform-style: preserve-3d;
-    text-align: center;
-    @include column-flex();
+@mixin home-container {
+  background: #224d3c;
+  margin: 0px 0px 0px 0px;
+  width: 450px;
+  height: 350px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 5px 5px #0000008c;
+  border-radius: 15px;
+  transition: width 300ms, height 300ms, transform 0.6s;
+  transform-style: preserve-3d;
+  @include column-flex();
 }
-

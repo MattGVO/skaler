@@ -25,10 +25,10 @@ module.exports = {
                 req.session.user = foundUser;
                 res.status(200).send({message: 'loggedIn'})
             } else {
-                res.status(401).send({message: 'Incorrect password'})
+                res.send({status: 401, message: 'Incorrect password'})
             }
         }else {
-            res.status(401).send({message: 'That has not been registered yet.'})
+            res.send({status: 401, message: 'That email has not been registered yet'})
         }
     },
     userData(req,res) {
@@ -40,6 +40,7 @@ module.exports = {
     },
     logout(req,res) {
         req.session.destroy();
+        console.log('loggedout')
         res.status(200).send('Thank for to come to my site!')
         res.redirect(HOME_PATH)
     },

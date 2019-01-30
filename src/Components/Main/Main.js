@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import ScaleSelector from "./ScaleSelector/ScaleSelector";
 import FretBoard from "./Fretboard/Fretboard";
 import ScaleNotes from "./ScaleNotes/ScaleNotes";
-import UserDrawer from "./UserDrawer/UserDrawer";
 import { connect } from "react-redux";
 import { updateUser } from "../../ducks/reducer";
 import { updateDuxTuning } from "../../ducks/reducer";
-import "./Main.css";
+import "./Main.scss";
 import axios from "axios";
 
 const authUrl = "/auth/";
@@ -17,7 +16,6 @@ class Main extends Component {
     super(props);
 
     this.state = {
-      user: null,
       tuningName: "",
       updateName: "",
       tuning: ["E", "A", "D", "G", "B", "E", "A", "A"]
@@ -106,26 +104,12 @@ class Main extends Component {
 
   render() {
     return (
-      <div>
-          <div className="preset-layer">
-            <UserDrawer
-              updateDbTuning={this.updateDbTuning}
-              deleteTuning={this.deleteTuning}
-              submitTuning={this.submitTuning}
-              tuning={this.state.tuning}
-              logOut={this.logOut}
-              tuningName={this.state.tuningName}
-              handleChange={this.handleChange}
-              className="preset-layer"
-            />
-            <div className="main-container">
+      <div className="main-container">
               <div className="main-container-background">
                 <ScaleSelector />
                 <FretBoard updateTuning={this.updateTuning} />
                 <ScaleNotes />
               </div>
-            </div>
-          </div>
       </div>
     );
   }

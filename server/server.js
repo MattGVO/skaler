@@ -1,4 +1,4 @@
-const path = require('path'); // Usually moved to the start of file
+const path = require('path');
 const express = require('express')
 const massive = require('massive')
 const session = require('express-session')

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-
+import './About.scss'
 
 class About extends Component {
   render() {
     return (
-      <div>
-        <h1>Welcome to SKALER!</h1>
+      <div className="about-container">
+        <h1 className="about-title">Welcome to SKALER!</h1>
+            <div className="about-scroll">
             <h3>It's time to learn music without learning music</h3>
             <hr/>
             <p>
@@ -30,9 +31,9 @@ class About extends Component {
             Once you are logged in you can save any tuning that you like and
             load it without having to individually change strings everytime.
           </p>
-        <div>
-          <button>Login</button>
-          <button>Signup</button>
+            </div>
+        <div className="home-buttons">
+          <button onClick={() => this.props.history.push("/login")}>Signup/Login</button>
         </div>
       </div>
     );

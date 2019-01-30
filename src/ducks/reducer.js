@@ -3,7 +3,6 @@ const initialState = {
   scaleName: "A Major/Aeolian",
   scaleNotes: ["A", "B", "C#", "D", "E", "F#", "G#"],
   user: null,
-  drawerDisplay: false,
   tuning: ["E", "A", "D", "G", "B", "E", "A", "D"]
 };
 
@@ -11,7 +10,6 @@ const NUM_OF_STRINGS = "NUM_OF_STRINGS";
 const SCALE_NAME = "SCALE_NAME";
 const SCALE_NOTES = "SCALE_NOTES";
 const USER_DATA = "USER_DATA";
-const DRAWER_DISPLAY = "DRAWER_DISPLAY";
 const UPDATE_TUNING = "UPDATE_TUNING";
 
 export function updateString(numOfStrings) {
@@ -42,12 +40,6 @@ export function updateUser(userData) {
   };
 }
 
-export function drawerDisplay(display) {
-  return {
-    type: DRAWER_DISPLAY,
-    payload: display
-  };
-}
 
 export function updateDuxTuning(tuning) {
   return {
@@ -66,8 +58,6 @@ export default function reducer(state = initialState, action) {
       return { ...state, scaleNotes: action.payload };
     case USER_DATA:
       return { ...state, user: action.payload };
-    case DRAWER_DISPLAY:
-      return { ...state, drawerDisplay: action.payload };
     case UPDATE_TUNING:
       return { ...state, tuning: action.payload };
     default:

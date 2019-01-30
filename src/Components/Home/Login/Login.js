@@ -1,17 +1,62 @@
 import React, { Component } from "react";
 import "./Login.css";
 // import { Link } from "react-router-dom";
-// import axios from "axios";
-// const authUrl = "/auth/";
+import axios from "axios";
+const authUrl = "/auth/";
 
 class Login extends Component {
   constructor(props){
     super(props)
     this.state={
-      error: ""
+      error: "",
+      email: "",
+      password:"",
     }
-    
+    this.login=this.login.bind(this);
+    this.signup=this.signup.bind(this)
   }
+
+
+handleChange = e => {
+  this.setState({
+    [e.target.name]:e.target.value
+  })
+}
+
+async login(){
+  if(this.state.email && this.state.password){
+    let res = await axios.post(`${authUrl}login`, {email: this.state.email, password: this.state.password})
+    if(res.data.message === "loggedIn"){
+      this.props.history.push("/main")
+    }
+    this.setState({
+      error: res.data.message
+    })
+  }else{
+    this.setState({
+      error: "Please fill out Email AND password"
+    })
+  }
+}
+
+async signup(){
+  if(this.state.email && this.state.password){
+    let res = await axios.post(`${authUrl}signup`, {email: this.state.email, password: this.state.password})
+    if(res.data.message === "loggedIn"){
+      this.props.history.push("/main")
+    }
+    this.setState({
+      error: res.data.message
+    })
+  }else{
+    this.setState({
+      error: "Please fill out Email AND password"
+    })
+  }
+}
+
+
+
   render() {
     return (
       <div className="form">
@@ -21,9 +66,9 @@ class Login extends Component {
         <p>PASSWORD :</p>
         <input type="password" name="password" onChange={this.handleChange} />
         <div className="home-buttons">
-          <button>About</button>
-          <button>Signup</button>
-          <button>Login</button>
+          <button onClick={() => this.props.history.push("/about")}>About</button>
+          <button onClick={this.signup}>Signup</button>
+          <button onClick={this.login}>Login</button>
         </div>
         {this.state.error ? (
             <p

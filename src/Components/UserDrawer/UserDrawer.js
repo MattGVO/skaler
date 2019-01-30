@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import { updateUser } from "../../../ducks/reducer";
+import './UserDrawer.scss';
+import { updateUser, updateDuxTuning } from "../../ducks/reducer";
 const authUrl = "/auth/";
 const apiUrl = "/api/";
 
@@ -10,40 +11,33 @@ class UserDrawer extends Component {
     super(props);
 
     this.state = {
-      hidden: false,
+      drawerDisplay: this.props.drawerDisplay,
+      user: this.props.user,
       update: false,
       delete: false,
       save: false,
       updateName: this.props.tuningName,
-      tunings: []
+      tunings: [],
     };
     this.updatePreset = this.updatePreset.bind(this);
     this.deletePreset = this.deletePreset.bind(this);
     this.savePreset = this.savePreset.bind(this);
     this.getAllTunings = this.getAllTunings.bind(this);
+    this.logout = this.logout.bind(this)
   }
 
   async componentDidMount() {
-    let user = "";
-    if (!this.props.user) {
-      let res = await axios.get(`${authUrl}user-data`);
-      user = res.data.useremail;
-    } else {
-      user = await this.props.user;
-    }
-    let res = await axios.post(`${apiUrl}get-all-tunings`, {
-      user
-    });
-    this.setState({
-      tunings: res.data
-    });
+    this.getAllTunings()
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.drawerDisplay !== prevProps.drawerDisplay) {
       this.setState({
-        hidden: this.props.drawerDisplay
+      drawerDisplay: this.props.drawerDisplay
       });
+    }
+    if(this.props.user !== prevProps.user){
+      this.getAllTunings()
     }
   }
 
@@ -83,6 +77,12 @@ class UserDrawer extends Component {
     }
   }
 
+  toggle = (e) =>{
+    this.setState({
+      [e.target.name]: !this.state[e.target.name]
+    })
+  }
+
   async getAllTunings() {
     let res = await axios.post(`${apiUrl}get-all-tunings`, {
       user: this.props.user
@@ -92,20 +92,26 @@ class UserDrawer extends Component {
     });
   }
 
+  async logout(){
+    await axios.get(`${authUrl}logout`)
+    this.props.history.push("/")
+  }
+
   render() {
-    console.log(this.state.tunings)
+    console.log(this.props.user)
     return (
       <div
-        style={!this.state.hidden ? { width: "0vw" } : {}}
-        className="menu-drawer"
+        className={this.state.drawerDisplay? "menu-drawer" : "menu-drawer closed-drawer" }
       >
-        <div className="drawer-items preset-drawer">
+      {this.props.user? 
+         <div className="preset-menu">
           <h1 className="drawer-items">presets</h1>
           {!this.state.update && !this.state.save ? (
             <select
+              style={{width: "100%"}}
               value={this.props.tuningName}
               name="tuningName"
-              onChange={this.props.handleChange}
+              onChange={(e) => {this.props.updateDuxTuning(e.target.value)}}
             >
               <option value="" hidden>
                 Choose Tuning
@@ -131,7 +137,7 @@ class UserDrawer extends Component {
           ) : null}
 
           {this.props.tuningName && this.state.update ? (
-            <div className="drawer-items">
+            <div className="drawer-contents">
               <input
                 className="preset-input"
                 name="updateName"
@@ -201,12 +207,12 @@ class UserDrawer extends Component {
           ) : (
             <button onClick={this.savePreset}>Save Tuning</button>
           )}
-        </div>
-        <div className="drawer-items">
-          <button className="login" onClick={this.props.logOut}>
-            logout
-          </button>
-        </div>
+          <button onClick={this.logout} >Logout</button>
+        </div>:
+        <div className="Drawer-contents">
+          <h1>Login to enjoy all of SKALER's features</h1>
+          <button onClick={() => this.props.history.push("/login")}>Signup/Login</button>
+        </div>}
       </div>
     );
   }
@@ -218,5 +224,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { updateUser }
+  { updateUser,updateDuxTuning }
 )(UserDrawer);

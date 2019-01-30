@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=K2D|Prompt");
+@import './Mixins.scss';
 
 * {
   font-family: "Prompt", sans-serif;
@@ -44,14 +45,13 @@ button {
 
 button:hover{
   background: whitesmoke;
-  color: #224D3C;
+  color: $green;
 }
 
 button:active{
-  background: rgb(150, 150, 150);
-  border: none;
-  color: #224D3C;
-  /* box-shadow: inset 1px 1px 35px #1d1d1d; */
+  background: $grey;
+  border-color: $grey;
+  color: whitesmoke;
 }
 
 button:focus {
@@ -59,7 +59,36 @@ button:focus {
 }
 
 input {
+  border-radius: 5px;
   background: whitesmoke;
   color: black;
   font-size: 20px;
+  border-color: $grey;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+  
+
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: whitesmoke; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $grey;
+}
+
+::-webkit-scrollbar-corner{
+  background: none;
 }

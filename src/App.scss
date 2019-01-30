@@ -1,6 +1,8 @@
+@import './Mixins.scss';
+
 header {
   position: relative;
-  background-color: #224d3c;
+  background-color: $green;
   height: 10vh;
   display: flex;
   align-items: center;
@@ -10,7 +12,8 @@ header {
   width: 100vw;
   box-shadow: 0px 5px 5px #0000008c;
   font-size: 40px;
-  z-index: 1;
+  z-index: 2;
+  overflow: hidden;
 }
 
 .header-items {
@@ -26,13 +29,24 @@ header {
   color: whitesmoke;
   background: none;
   border: none;
+  width: 180px;
+  cursor: pointer;
+  transition: color 100ms
+}
+
+.logo-button{
+  transition: transform 300ms;
 }
 
 
-
-a:hover{
-  font-size: 42px;
+.logo-button:hover{
+  transform: scale(1.05);
 }
+
+.title:active{
+  color: $grey;
+}
+
 
 a{
   color: whitesmoke;
