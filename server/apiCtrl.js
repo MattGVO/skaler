@@ -22,10 +22,10 @@ module.exports ={
     },
     async getAllTunings(req,res) {
         let {user} =req.body
-        console.log(req.body)
+        console.log('getAllTunings',req.body)
         let db = req.app.get('db')
         let foundTunings = await db.scales.get_all_tunings([user])
-        console.log(foundTunings)
+        console.log('foundTunings',foundTunings)
         res.status(200).send(foundTunings)
     },
     async getTuning(req,res){

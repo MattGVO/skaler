@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.scss";
 import Routes from "./Routes";
 import logo from "./skaler.svg";
-import UserDrawer from "./Components/UserDrawer/RouteDrawer";
+import NavDrawer from "./Components/NavDrawer/NavDrawer";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser } from "./ducks/reducer";
@@ -25,7 +25,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("state user", this.state.user);
     return (
       <div className="App">
         <header>
@@ -41,10 +40,6 @@ class App extends Component {
           />
         </header>
         <main>
-          <UserDrawer
-            drawerDisplay={this.state.drawerDisplay}
-            history={this.props.history}
-          />
           {Routes}
         </main>
       </div>

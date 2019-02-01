@@ -1,0 +1,34 @@
+@import '../../../Mixins.scss';
+
+#Preset-container{
+    margin-left: 15px;
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.Preset-buttons{
+    margin-left: 15px;
+    border-color: $grey;
+    color: $grey;
+    border-width: 1px;
+}
+
+.Preset-buttons:hover{
+    border-color: $darkGreen;
+}
+
+.Preset-buttons:active{
+    background: $greyFade;
+    border-color: $greyFade;
+}
+
+.Preset-buttons:disabled{
+    border-color: $darkGrey;
+    color: $darkGrey;
+    box-shadow: inset 5px 5px 55px $greyFade;
+}
+
+

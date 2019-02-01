@@ -42,9 +42,8 @@ class Main extends Component {
         user: res.data.useremail
       });
       this.props.updateUser(res.data.useremail);
-    } else{
-      this.props.history.push('/login')
     }
+    
   }
 
   async componentDidUpdate(prevProps) {
@@ -53,27 +52,24 @@ class Main extends Component {
         user: this.state.user,
         tuningName: this.props.tuningName
       });
-      console.log('res.data:',res.data)
       this.props.updateDuxTuning(res.data);
     }
   }
 
   async submitTuning(callback) {
-    let res = await axios.post(`${apiUrl}save-tuning`,{
+    await axios.post(`${apiUrl}save-tuning`,{
       user: this.state.user,
       tuningName: this.state.updateName,
       tuning: this.state.tuning,
     })
-    console.log(res.data)
   }
 
   async deleteTuning(){
     // var user = this.state.user
     var tuningName = this.state.tuningName
-    let res = await  axios.delete(`${apiUrl}delete-tuning/${tuningName}`,{
+    await  axios.delete(`${apiUrl}delete-tuning/${tuningName}`,{
       data: tuningName,
     })
-    console.log(res.data)
   }
 
   async updateDbTuning(){
@@ -84,11 +80,10 @@ class Main extends Component {
     }else{
       updateName = this.state.updateName
     }
-    let res = await axios.put(`${apiUrl}update-db-tuning/${user}`,{
+    await axios.put(`${apiUrl}update-db-tuning/${user}`,{
       updateName: updateName,
       tuningName: this.state.tuningName,
     })
-    console.log(res.data)
   }
 
   handleChange = e => {
@@ -97,8 +92,7 @@ class Main extends Component {
 
   async logOut() {
     this.props.updateUser(null);
-    let res = await axios.get(`${authUrl}logout`);
-    console.log(res.data);
+    await axios.get(`${authUrl}logout`);
     this.setState({
       user: null
     });
@@ -106,7 +100,6 @@ class Main extends Component {
   }
 
   render() {
-    console.log(this.props.tuningName)
     return (
       <div className="main-container">
               <div className="main-container-background">

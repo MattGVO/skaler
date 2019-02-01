@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=K2D|Prompt");
-@import './Mixins.scss';
+@import "./Mixins.scss";
 
 * {
   font-family: "Prompt", sans-serif;
@@ -43,12 +43,12 @@ button {
   transition: color 100ms, background 100ms;
 }
 
-button:hover{
+button:hover {
   background: whitesmoke;
   color: $green;
 }
 
-button:active{
+button:active {
   background: $grey;
   border-color: $grey;
   color: whitesmoke;
@@ -63,8 +63,15 @@ input {
   background: whitesmoke;
   color: black;
   font-size: 20px;
+  border-width: 1px;
   border-color: $grey;
   text-indent: 8px;
+}
+
+select:disabled {
+  border-color: $darkGrey;
+  color: $darkGrey;
+  box-shadow: inset 5px 5px 55px $greyFade;
 }
 
 /* width */
@@ -75,13 +82,11 @@ input {
 /* Track */
 ::-webkit-scrollbar-track {
   background: none;
-  
-
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: whitesmoke; 
+  background: whitesmoke;
   border-radius: 10px;
 }
 
@@ -90,6 +95,6 @@ input {
   background: $grey;
 }
 
-::-webkit-scrollbar-corner{
+::-webkit-scrollbar-corner {
   background: none;
 }
