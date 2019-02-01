@@ -66,7 +66,7 @@ async signup(){
         <p>PASSWORD :</p>
         <input type="password" name="password" onChange={this.handleChange} />
         <div className="home-buttons">
-          <button onClick={() => this.props.history.push("/about")}>About</button>
+          {/* <button onClick={() => this.props.history.push("/about")}>About</button> */}
           <button onClick={this.signup}>Signup</button>
           <button onClick={this.login}>Login</button>
         </div>

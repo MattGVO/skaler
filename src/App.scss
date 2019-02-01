@@ -3,13 +3,14 @@
 header {
   position: relative;
   background-color: $green;
+  padding: 0 24px 0 24px;
   height: 10vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: whitesmoke;
-  width: 100vw;
+  max-width: 100vw;
   box-shadow: 0px 5px 5px #0000008c;
   font-size: 40px;
   z-index: 2;
@@ -38,14 +39,25 @@ header {
   transition: transform 300ms;
 }
 
+i{
+  cursor: pointer;
+  transition: transform 300ms;
+}
+
 
 .logo-button:hover{
   transform: scale(1.05);
 }
 
-.title:active{
-  color: $grey;
+
+i:hover{
+  transform: scale(1.15);
 }
+
+
+// .title:active{
+//   color: $grey;
+// }
 
 
 a{

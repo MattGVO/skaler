@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.scss";
 import Routes from "./Routes";
 import logo from "./skaler.svg";
-import UserDrawer from "./Components/UserDrawer/UserDrawer";
+import UserDrawer from "./Components/UserDrawer/RouteDrawer";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser } from "./ducks/reducer";
@@ -13,32 +13,32 @@ class App extends Component {
 
     this.state = {
       user: this.props.user,
-      drawerDisplay: false,
+      drawerDisplay: false
     };
     this.openCloseDrawer = this.openCloseDrawer.bind(this);
   }
 
-
   openCloseDrawer() {
     this.setState({
       drawerDisplay: !this.state.drawerDisplay
-    })
+    });
   }
 
   render() {
-    console.log('state user',this.state.user);
+    console.log("state user", this.state.user);
     return (
       <div className="App">
         <header>
-          <Link to="/about" className="logo-button">
-            <div className="header-items logo-container">
-              <h3 className="header-items title">SKALER</h3>
+          <Link to="/" className="logo-button">
+            <div className="logo-container">
+              <h3 className="title">SKALER</h3>
               <img className="logo" src={logo} alt="logo" />
             </div>
           </Link>
-          <h3 onClick={this.openCloseDrawer} className="logo-button title">
-            menu
-          </h3>
+          <i
+            onClick={this.openCloseDrawer}
+            className="logo-button fas fa-bars"
+          />
         </header>
         <main>
           <UserDrawer

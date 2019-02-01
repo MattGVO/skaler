@@ -2,6 +2,7 @@ const initialState = {
   numOfStrings: 6,
   scaleName: "A Major/Aeolian",
   scaleNotes: ["A", "B", "C#", "D", "E", "F#", "G#"],
+  tuningName: "",
   user: null,
   tuning: ["E", "A", "D", "G", "B", "E", "A", "D"]
 };
@@ -11,6 +12,7 @@ const SCALE_NAME = "SCALE_NAME";
 const SCALE_NOTES = "SCALE_NOTES";
 const USER_DATA = "USER_DATA";
 const UPDATE_TUNING = "UPDATE_TUNING";
+const UPDATE_TUNING_NAME = "UPDATE_TUNING_NAME"
 
 export function updateString(numOfStrings) {
   return {
@@ -48,6 +50,13 @@ export function updateDuxTuning(tuning) {
   };
 }
 
+export function updateTuningName(tuningName){
+  return {
+    type: UPDATE_TUNING_NAME,
+    payload: tuningName
+  }
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case NUM_OF_STRINGS:
@@ -60,6 +69,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, user: action.payload };
     case UPDATE_TUNING:
       return { ...state, tuning: action.payload };
+    case UPDATE_TUNING_NAME:
+      return { ...state, tuningName: action.payload}
     default:
       return state;
   }

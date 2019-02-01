@@ -42,15 +42,18 @@ class Main extends Component {
         user: res.data.useremail
       });
       this.props.updateUser(res.data.useremail);
+    } else{
+      this.props.history.push('/login')
     }
   }
 
-  async componentDidUpdate(prevProps, prevState) {
-    if (this.state.tuningName !== prevState.tuningName) {
+  async componentDidUpdate(prevProps) {
+    if (this.props.tuningName !== prevProps.tuningName) {
       let res = await axios.post(`${apiUrl}get-tuning`, {
         user: this.state.user,
-        tuningName: this.state.tuningName
+        tuningName: this.props.tuningName
       });
+      console.log('res.data:',res.data)
       this.props.updateDuxTuning(res.data);
     }
   }
@@ -103,6 +106,7 @@ class Main extends Component {
   }
 
   render() {
+    console.log(this.props.tuningName)
     return (
       <div className="main-container">
               <div className="main-container-background">
@@ -115,7 +119,11 @@ class Main extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return state;
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   { updateUser, updateDuxTuning }
 )(Main);
