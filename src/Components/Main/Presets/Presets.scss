@@ -11,24 +11,21 @@
 
 .Preset-buttons{
     margin-left: 15px;
-    border-color: $grey;
-    color: $grey;
+    border-color: $green;
+    background:$green;
+    color: whitesmoke;
     border-width: 1px;
 }
 
-.Preset-buttons:hover{
-    border-color: $darkGreen;
-}
+// .Preset-buttons:hover{
+//     border-color: $darkGreen;
+// }
 
-.Preset-buttons:active{
-    background: $greyFade;
-    border-color: $greyFade;
-}
 
 .Preset-buttons:disabled{
-    border-color: $darkGrey;
-    color: $darkGrey;
-    box-shadow: inset 5px 5px 55px $greyFade;
+    background: rgba(200,200,200,.5);
+    border-color:  rgba(200,200,200,.5);
+    color: whitesmoke;
 }
 
 

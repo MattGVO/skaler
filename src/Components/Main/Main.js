@@ -43,7 +43,6 @@ class Main extends Component {
       });
       this.props.updateUser(res.data.useremail);
     }
-    
   }
 
   async componentDidUpdate(prevProps) {
@@ -96,7 +95,6 @@ class Main extends Component {
     this.setState({
       user: null
     });
-    this.props.history.push("/");
   }
 
   render() {

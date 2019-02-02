@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import "./NavDrawer.scss";
 import { updateUser, updateTuningName } from "../../ducks/reducer";
+import { NavLink } from "react-router-dom";
 const authUrl = "/auth/";
 
 class UserDrawer extends Component {
@@ -10,7 +11,12 @@ class UserDrawer extends Component {
     await axios.get(`${authUrl}logout`);
   }
   render() {
-    return <div/>;
+    return <div className="menu-drawer">
+    <NavLink to="/" activeClassName><button>Home</button></NavLink>
+    <NavLink to="/main"><button>FretBoard</button></NavLink>
+    <NavLink to="/login"><button>Signup/Login</button></NavLink>
+
+    </div>;
   }
 }
 

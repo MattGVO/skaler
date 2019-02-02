@@ -49,9 +49,24 @@ i{
   transform: scale(1.05);
 }
 
+#nav-bar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+}
+.nav-links{
+  font-size: 16px;
+  font-weight: 100;
+  color: $grey;
+}
 
-i:hover{
-  transform: scale(1.15);
+.nav-links:hover{
+  color: whitesmoke;
+}
+
+.active-route{
+  color: whitesmoke;
 }
 
 

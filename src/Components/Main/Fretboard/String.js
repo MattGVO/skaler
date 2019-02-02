@@ -97,7 +97,7 @@ class String extends Component {
     
     return (
       <div className="StringAndFret">
-        <select value={this.state.string} name="string" onChange={this.handleChange}>
+        <select value={this.state.string} name="string" onChange={(e) => {this.handleChange(e); this.props.spliceTuning(this.props.index, e);}}>
           <option value="A">A</option>
           <option value="A#">A#</option>
           <option value="B">B</option>

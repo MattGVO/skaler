@@ -4,7 +4,8 @@ const initialState = {
   scaleNotes: ["A", "B", "C#", "D", "E", "F#", "G#"],
   tuningName: "",
   user: null,
-  tuning: ["E", "A", "D", "G", "B", "E", "A", "D"]
+  tuning: ["E", "A", "D", "G", "B", "E", "A", "D"],
+  userTunings: [],
 };
 
 const NUM_OF_STRINGS = "NUM_OF_STRINGS";
@@ -13,6 +14,14 @@ const SCALE_NOTES = "SCALE_NOTES";
 const USER_DATA = "USER_DATA";
 const UPDATE_TUNING = "UPDATE_TUNING";
 const UPDATE_TUNING_NAME = "UPDATE_TUNING_NAME"
+const UPDATE_USER_TUNINGS = "UPDATE_USER_TUNINGS"
+
+export function updateUserTunings(userTunings){
+  return {
+    type: UPDATE_USER_TUNINGS,
+    payload: userTunings
+  }
+}
 
 export function updateString(numOfStrings) {
   return {
@@ -71,6 +80,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, tuning: action.payload };
     case UPDATE_TUNING_NAME:
       return { ...state, tuningName: action.payload}
+    case UPDATE_USER_TUNINGS:
+      return { ...state, userTunings: action.payload}
     default:
       return state;
   }

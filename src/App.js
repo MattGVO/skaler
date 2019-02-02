@@ -3,28 +3,45 @@ import "./App.scss";
 import Routes from "./Routes";
 import logo from "./skaler.svg";
 import NavDrawer from "./Components/NavDrawer/NavDrawer";
-import { Link, withRouter } from "react-router-dom";
+import { NavLink, Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser } from "./ducks/reducer";
+import axios from "axios";
+
+const authUrl = "/auth/";
+
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      user: this.props.user,
-      drawerDisplay: false
+      user: null,
     };
-    this.openCloseDrawer = this.openCloseDrawer.bind(this);
+    this.logOut = this.logOut.bind(this)
   }
 
-  openCloseDrawer() {
+  async componentDidMount() {
+    let res = await axios.get(`${authUrl}user-data`);
+    if (res.data.useremail) {
+      this.setState({
+        user: res.data.useremail
+      });
+      this.props.updateUser(res.data.useremail);
+    }
+  }
+
+  async logOut() {
+    this.props.updateUser(null);
+    await axios.get(`${authUrl}logout`);
     this.setState({
-      drawerDisplay: !this.state.drawerDisplay
+      user: null
     });
   }
 
+
   render() {
+    console.log(this.props.user,this.state.user)
     return (
       <div className="App">
         <header>
@@ -34,14 +51,13 @@ class App extends Component {
               <img className="logo" src={logo} alt="logo" />
             </div>
           </Link>
-          <i
-            onClick={this.openCloseDrawer}
-            className="logo-button fas fa-bars"
-          />
+          <div id="nav-bar">
+            <NavLink className="nav-links" activeClassName="active-route" exact to="/">Home</NavLink>
+            <NavLink className="nav-links" activeClassName="active-route" to="/main">Fretboard</NavLink>
+            {!this.props.user? <NavLink className="nav-links" to="/login"><button>Signup/Login</button></NavLink>:<button onClick={this.logOut}>Logout</button>}
+          </div>
         </header>
-        <main>
-          {Routes}
-        </main>
+        <main>{Routes}</main>
       </div>
     );
   }
@@ -51,9 +67,8 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default withRouter(
-  connect(
+export default 
+withRouter(connect(
     mapStateToProps,
     { updateUser }
-  )(App)
-);
+  )(App));

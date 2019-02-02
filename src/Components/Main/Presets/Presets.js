@@ -9,10 +9,6 @@ class Presets extends Component {
         super(props);
         this.state={
             userTunings: [],
-            edit: false,
-            save: false,
-            delete: false,
-            update: false,
         }
     }
 
@@ -24,6 +20,11 @@ class Presets extends Component {
             let userTunings = res.data.map((val, i) => val.tuningname)
             this.setState({
               userTunings 
+            })
+        }
+        if(this.props.userTunings !== prevProps.userTunings){
+            this.setState({
+                userTunings: this.props.userTunings
             })
         }
     }
@@ -40,15 +41,15 @@ class Presets extends Component {
         return(
             <div id="Preset-container">
                 <span style={{marginRight: "5px"}}>Presets:</span>
-                {this.state.edit? 
-                <input name="tuningName"value="edit"style={{width: "300px"}}/>
+                {this.props.edit? 
+                <input name="updateName" maxLength="44" onChange={this.props.handleChange} defaultValue={this.props.userTuningName} style={{width: "300px"}}/>
                 :null
                 }
-                {this.state.save?
-                <input name="updateName" value="save"style={{width: "300px"}}/>
+                {this.props.save?
+                <input name="tuningName" maxLength="44" onChange={this.props.handleChange} placeholder="Preset Name" style={{width: "300px"}}/>
                 :null
                 }
-                {!this.state.edit && !this.state.save && !this.state.update?
+                {!this.props.edit && !this.props.save?
                 <select name="tuningName" onChange={this.props.handleChange}style={{width: "300px"}} disabled={!this.props.user}>
                     <option  hidden>{this.props.user? "Choose Preset": "Login To Save Presets"}</option>
                     {this.state.userTunings.map( (val,i) => {
@@ -57,9 +58,9 @@ class Presets extends Component {
                 </select>
                 :null
                 }
-                <button name="edit" onClick={this.toggle} className="Preset-buttons" disabled={!this.props.userTuningName} >Edit</button>
-                <button name="delete" onClick={this.toggle} className="Preset-buttons" disabled={!this.props.userTuningName} >Delete</button>
-                <button name="save" onClick={this.toggle} className="Preset-buttons" disabled={!this.props.user} >Save</button>
+                <button name="edit" onClick={this.props.toggle} className="Preset-buttons" disabled={!this.props.userTuningName || this.props.edit || this.props.delete || this.props.save} >Edit</button>
+                <button name="delete" onClick={this.props.toggle} className="Preset-buttons" disabled={!this.props.userTuningName || this.props.edit || this.props.delete || this.props.save} >Delete</button>
+                <button name="save" onClick={this.props.toggle} className="Preset-buttons" disabled={!this.props.user || this.props.edit || this.props.delete || this.props.save} >Save</button>
                 
 
             </div>

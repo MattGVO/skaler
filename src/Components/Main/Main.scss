@@ -17,7 +17,7 @@
 .main-container-background {
   background-color: $green;
   width: 70%;
-  height: 85%;
+  height: 98%;
   @include column-flex();
   @extend %double-center;
   border-radius: 15px;
@@ -65,6 +65,8 @@
   align-items: center;
   color: $darkGreen;
   box-shadow: 0px 5px 5px #0000008c;
+  position: relative;
+  overflow: hidden;
   
 }
 
@@ -135,6 +137,7 @@
   align-items: center;
   border-radius: 0px 0px 15px 15px;
   box-shadow: 0px 5px 5px #0000008c;
+  z-index: 1;
 }
 
 .ScaleNotes h4{
@@ -201,12 +204,14 @@ select {
   @extend %double-center;
 }
 
+
 #user-message{
   height: 95px;
   @include column-flex();
   justify-content: center;
   align-items: center;
   width: 100%;
+  text-align: center;
 }
 
 #user-message h2{
