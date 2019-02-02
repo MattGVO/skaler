@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.scss";
 import Routes from "./Routes";
 import logo from "./skaler.svg";
-import NavDrawer from "./Components/NavDrawer/NavDrawer";
 import { NavLink, Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser } from "./ducks/reducer";
