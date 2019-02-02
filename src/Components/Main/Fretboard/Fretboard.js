@@ -108,7 +108,6 @@ class Fretboard extends Component {
   spliceTuning(index, e){
     let newTuning = this.state.tuning
     newTuning.splice(index, 1, e.target.value)
-    console.log('newTuning',newTuning)
     this.setState({
       tuning: [...newTuning]
     })
@@ -139,7 +138,7 @@ class Fretboard extends Component {
  async saveTuning(){
   let res = await axios.post(`${apiUrl}save-tuning`,{
     user: this.props.user,
-    tuningName: this.state.tuningName,
+    tuningName: this.state.updateName,
     tuning: this.state.tuning
   })
   console.log('res.data',res.data)
@@ -158,6 +157,7 @@ class Fretboard extends Component {
   };
 
   render() {
+    console.log('this.state.tuning',this.state.tuning)
     console.log("this.state.userTunings:", this.state.userTunings);
     return (
       <div className="Fretboard">

@@ -69,10 +69,10 @@ input {
 }
 
 select:disabled {
-  border-color: $darkGrey;
-  color: $darkGrey;
-  box-shadow: inset 5px 5px 55px $greyFade;
+    border-color:  rgba(200,200,200,.5);
 }
+
+
 
 /* width */
 ::-webkit-scrollbar {

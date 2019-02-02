@@ -38,6 +38,7 @@ module.exports ={
     },
     async saveTuning(req,res){
         let { user,tuningName,tuning } = req.body
+        console.log('save', req.body)
         let [ one,two,three,four,five,six,seven,eight ] = tuning
         let db = req.app.get('db')
         await db.scales.save_tuning(
@@ -51,17 +52,14 @@ module.exports ={
         let user = req.session.user.useremail
         let { id } = req.params
         let db = req.app.get('db')
-        let [deleteTuning] = await db.scales.delete_tuning([user,id])
+        await db.scales.delete_tuning([user,id])
         let foundTunings = await db.scales.get_all_tunings([user])
         res.status(200).send(foundTunings)
     },
     async updateDbTuning(req,res){
         let {user} = req.params
-        console.log(req.params)
         let { updateName,tuningName,tuning } = req.body
         let [ one,two,three,four,five,six,seven,eight ] = tuning
-        console.log(req.body)
-        console.log(one)
         let db = req.app.get('db')
         await db.scales.update_db_tuning([updateName,user,tuningName,one,two,three,four,five,six,seven,eight]).catch(() => console.log('oops'))
         let foundTunings = await db.scales.get_all_tunings([user])

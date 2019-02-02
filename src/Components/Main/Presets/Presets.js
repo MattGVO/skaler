@@ -46,11 +46,11 @@ class Presets extends Component {
                 :null
                 }
                 {this.props.save?
-                <input name="tuningName" maxLength="44" onChange={this.props.handleChange} placeholder="Preset Name" style={{width: "300px"}}/>
+                <input name="updateName" maxLength="44" onChange={this.props.handleChange} placeholder="Preset Name" style={{width: "300px"}}/>
                 :null
                 }
                 {!this.props.edit && !this.props.save?
-                <select name="tuningName" onChange={this.props.handleChange}style={{width: "300px"}} disabled={!this.props.user}>
+                <select name="tuningName" onChange={this.props.handleChange} style={{width: "300px"}} disabled={!this.props.user}>
                     <option  hidden>{this.props.user? "Choose Preset": "Login To Save Presets"}</option>
                     {this.state.userTunings.map( (val,i) => {
                         return <option key={i} value={val}>{val}</option>

@@ -40,7 +40,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.props.user,this.state.user)
     return (
       <div className="App">
         <header>
