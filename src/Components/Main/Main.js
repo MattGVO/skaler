@@ -5,7 +5,7 @@ import ScaleNotes from "./ScaleNotes/ScaleNotes";
 import { connect } from "react-redux";
 import { updateUser } from "../../ducks/reducer";
 import { updateDuxTuning } from "../../ducks/reducer";
-import "./Main.scss";
+import "./Maincss";
 import axios from "axios";
 
 const authUrl = "/auth/";

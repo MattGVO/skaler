@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.scss";
+import "./Appcss";
 import Routes from "./Routes";
 import logo from "./skaler.svg";
 import { NavLink, Link, withRouter } from "react-router-dom";

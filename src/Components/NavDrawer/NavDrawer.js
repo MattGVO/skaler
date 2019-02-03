@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import "./NavDrawer.scss";
+import "./NavDrawercss";
 import { updateUser, updateTuningName } from "../../ducks/reducer";
 import { NavLink } from "react-router-dom";
 const authUrl = "/auth/";

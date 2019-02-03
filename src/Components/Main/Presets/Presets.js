@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Presets.scss"
+import "./Presetscss"
 import { connect } from 'react-redux';
 import axios from "axios";
 const apiUrl = '/api/'

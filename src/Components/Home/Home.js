@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
-import "./Home.scss";
+import "./Homecss";
 import logo from "../../skaler.svg";
 import Login from "./Login/Login";
 import { connect } from 'react-redux';

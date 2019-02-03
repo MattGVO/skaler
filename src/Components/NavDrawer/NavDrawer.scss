@@ -1,10 +1,8 @@
-@import '../../Mixins.scss';
-
 .menu-drawer{
     position: absolute;
     width: 25vw;
     height: 30px;
-    background: $green;
+    background: #224d3c;;
     color: whitesmoke;
     z-index: 1;
     right: 0;

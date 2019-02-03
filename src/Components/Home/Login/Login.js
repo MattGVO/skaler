@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Login.scss";
+import "./Logincss";
 // import { Link } from "react-router-dom";
 import axios from "axios";
 const authUrl = "/auth/";
